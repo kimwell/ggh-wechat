@@ -1,0 +1,41 @@
+<!--components/orderTemp/screen/index.wxml-->
+<view class='screen-container'>
+  <view class='group'>
+    <view class='search-warp'>
+      <text class='iconfont icon-i-search'></text>
+      <input class='goast' placeholder='卖家公司名称模糊查询' value="{{ companyName }}" bindinput='updateValue'></input>
+    </view>
+  </view>
+
+
+  <view class='group'>
+    <view class='title'>中标时间</view>
+    <view class='picker-warp'>
+      <picker class="picker" mode="date" value="{{begin}}" start="nowTime" end="nowTime" bindchange="benginChange">
+        <view>
+          <text wx:if="{{ begin == '' }}">开始时间</text>{{begin}}
+        </view>
+      </picker>
+      <text class='split'></text>
+      <picker class="picker" mode="date" value="{{end}}" start="nowTime" end="nowTime" bindchange="endChange">
+        <view>
+          <text wx:if="{{ end == '' }}">结束时间</text>{{end}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class='group no-b'>
+    <view class='title'>订单状态</view>
+    <view class='status'>
+      <view class='item {{ activeSt == index ? "active" : "" }}' 
+      wx:for="{{ status }}" wx:key bindtap='pick' 
+      data-i="{{ index }}">{{ item.label }}</view>
+    </view>
+  </view>
+
+  <view class='bottom-btns'>
+    <view class='btn' bindtap='reset'>重置</view>
+    <view class='btn pramy' bindtap='doScreen'>确定</view> 
+  </view>
+</view>

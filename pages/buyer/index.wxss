@@ -1,0 +1,18 @@
+.role-tag {
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+  padding-top: 80rpx;
+}
+
+.role-tag .auth {
+  display: inline-block;
+  width: 230rpx;
+  height: 57rpx;
+  border-radius: 28rpx;
+  border: 1px solid #1875f0;
+  color: #1875f0;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 57rpx;
+}

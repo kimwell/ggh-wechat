@@ -1,0 +1,12 @@
+<!--pages/index/shops/index.wxml-->
+<view class='switch-tab'>
+  <view class='item {{ active == index ? "active" : "" }}' 
+  wx:for="{{ tabs }}" wx:key
+  bindtap='switchTab' data-i="{{ index }}">{{ item.label }}</view>
+</view>
+
+<view class='shop-ads'>
+  <view class='item' wx:for="{{ list }}" wx:key>
+    <image class='shop-img' src="{{ item.url != '' ? item.url : defaultImg }}"></image>
+  </view>
+</view>

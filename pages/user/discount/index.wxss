@@ -1,0 +1,56 @@
+page {
+  background-color: #fff;
+}
+
+.discount {
+  padding: 40rpx 30rpx;
+}
+
+.discount-textarea {
+  position: relative;
+  margin-bottom: 68rpx;
+}
+
+.discount .placeholder {
+  color: #bdbdbd;
+  font-size: 32rpx;
+}
+.font-count{
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  font-size: 32rpx;
+  color: #BDBDBD;
+}
+.discount textarea {
+  border: 1px solid #ddd;
+  padding: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  color: #333;
+  height: 318rpx;
+}
+
+.discount-hot .hot-title {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 35rpx;
+}
+
+.tag {
+  font-size: 28rpx;
+  color: #999;
+  display: inline-block;
+  height: 48rpx;
+  line-height: 48rpx;
+  background-color: #f4f5f5;
+  padding: 0 20rpx;
+  border-radius: 24rpx;
+  margin-right: 15rpx;
+  margin-bottom: 20rpx;
+}
+.pb-btn{
+  padding: 0 30rpx;
+  padding-top: 60rpx;
+}

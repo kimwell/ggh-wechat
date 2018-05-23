@@ -1,0 +1,6 @@
+<block wx:if="{{!end}}">
+  <slot name="before" wx:if="{{content != ''}}"></slot>
+  <text>{{content}}</text>
+  <slot name="after" wx:if="{{content != ''}}"></slot>
+</block>
+<block wx:else>已结束</block>

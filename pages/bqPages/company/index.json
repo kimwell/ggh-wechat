@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "公司详情",
+  "usingComponents": {
+    "gradeInfo": "../../../components/grade/index"
+  }
+}

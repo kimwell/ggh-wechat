@@ -1,0 +1,36 @@
+<view class="data">
+  <view class='nav'>
+    <view wx:for="{{navData}}" wx:key="index" class="nav-item {{status === index ? 'current':''}}" data-idx="{{index}}" bindtap='switchNav'>{{item.name}}</view>
+  </view>
+  <view class='filterData'>
+    <view class='filter'>
+      <text class='iconfont icon-LC_icon_delete_line del' bindtap='clearData'></text>
+      <picker mode="date" class='time' value="{{startTime}}" start="1990-01-01" end="{{today}}" bindchange="changeStart">
+        <view class="picker">
+          {{startTime != ''? startTime :'请选择'}}
+        </view>
+      </picker>
+      <text class='split'>-</text>
+      <picker mode="date" class='time' value="{{endTime}}" start="1990-01-01" end="{{today}}" bindchange="changeEnd">
+        <view class="picker">
+          {{endTime != ''? endTime :'请选择'}}
+        </view>
+      </picker>
+      <text class='search' bindtap='searchBtn'>查询</text>
+    </view>
+  </view>
+  <view class='data-detail'>
+    <view class='detail-wrap' wx:if="{{status === 0}}">
+      <view class='detail-item' wx:for="{{buyerData}}" wx:key="index">
+        <view class='name'>{{item.name}}</view>
+        <view class='count'>{{item.count}}</view>
+      </view>
+    </view>
+    <view class='detail-wrap' wx:if="{{status === 1}}">
+      <view class='detail-item' wx:for="{{sellerData}}" wx:key="index">
+        <view class='name'>{{item.name}}</view>
+        <view class='count'>{{item.count}}</view>
+      </view>
+    </view>
+  </view>
+</view>

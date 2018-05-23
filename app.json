@@ -1,0 +1,87 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/index",
+    "components/orderTemp/orderDetail/index",
+    "components/orderTemp/screen/index",
+    "pages/orders/buyerOrder/index",
+    "pages/offer/index",
+    "pages/buyer/index",
+    "pages/publish/subPages/history/index",
+    "pages/user/scope/index",
+    "pages/user/discount/index",
+    "pages/register/parts/authentication/index",
+    "pages/login/index",
+    "pages/register/index",
+    "pages/publish/index",
+    "pages/publish/subPages/addNew/index",
+    "pages/publish/subPages/pbList/index",
+    "pages/login/forget/index",
+    "pages/register/parts/protocol/index",
+    "pages/register/parts/authDetail/index",
+    "pages/bqPages/detail/index",
+    "pages/bqPages/history/index",
+    "pages/bqPages/company/index",
+    "pages/user/account/index",
+    "pages/user/dataAnalysis/index",
+    "pages/index/shops/index",
+    "pages/user/account/sub/index",
+    "pages/user/supplier/index",
+    "pages/user/customer/index",
+    "pages/index/news/index",
+    "pages/index/newsDetail/index",
+    "pages/orders/sellerOrder/index",
+    "pages/user/setting/index",
+    "pages/user/setting/parts/info/index",
+    "components/orderTemp/Salesman/index",
+    "pages/user/setting/parts/safe/index",
+    "components/orderTemp/salesmanSome/index",
+    "components/orderTemp/modifyPrice/index",
+    "pages/user/union/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#333333",
+    "backgroundColor": "#ffffff",
+    "navigationBarTitleText": "接单吧",
+    "navigationBarTextStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./static/images/home.png",
+        "selectedIconPath": "./static/images/home-selected.png"
+      },
+      {
+        "pagePath": "pages/buyer/index",
+        "text": "求购",
+        "iconPath": "./static/images/buyer.png",
+        "selectedIconPath": "./static/images/buyer-selected.png"
+      },
+      {
+        "pagePath": "pages/publish/subPages/pbList/index",
+        "text": "发布",
+        "iconPath": "./static/images/publish.png",
+        "selectedIconPath": "./static/images/publish.png"
+      },
+      {
+        "pagePath": "pages/offer/index",
+        "text": "报价",
+        "iconPath": "./static/images/offer.png",
+        "selectedIconPath": "./static/images/offer-selected.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "./static/images/user.png",
+        "selectedIconPath": "./static/images/user-selected.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,324 @@
+.auth-step {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  padding: 22rpx 0;
+}
+
+.step-item {
+  text-align: center;
+  position: relative;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.step-item::after {
+  content: '······';
+  position: absolute;
+  top: 0;
+  left: -38rpx;
+  color: #ccc;
+  font-size: 30rpx;
+}
+
+.step-item.active::after {
+  color: #1875f0;
+}
+
+.step-item:first-child:after {
+  display: none;
+}
+
+.step-item text {
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  background-color: #ccc;
+  border-radius: 40rpx;
+  color: #fff;
+}
+
+.step-item .label {
+  margin-top: 20rpx;
+}
+
+.step-item.active text {
+  background-color: #1875f0;
+}
+
+.step-item.active .label {
+  color: #1875f0;
+}
+
+.step-btn {
+  padding: 0 60rpx;
+}
+
+.step-btns {
+  padding: 0 30rpx;
+  margin-top: 96rpx;
+}
+
+.step-btns .btns {
+  display: inline-block;
+  width: 328rpx;
+}
+
+.step-btns .btns:first-child {
+  margin-right: 30rpx;
+}
+
+.step-form {
+  background: #fff;
+}
+
+.step-form.step-form-other {
+  margin-top: 44rpx;
+  padding: 30rpx;
+}
+
+.step-form.step-form-other .step-section-title {
+  font-size: 30rpx;
+  color: #666;
+  margin-bottom: 32rpx;
+}
+
+.step-form.step-form-other .step-section-main {
+  padding-bottom: 30rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.step-section-main input {
+  border: 1px solid #ccc;
+  padding: 10rpx;
+  border-radius: 4rpx;
+}
+
+.step-section {
+  position: relative;
+  padding: 30rpx 0;
+  overflow: hidden;
+}
+
+.step-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30rpx;
+  height: 1px;
+  width: 100%;
+  background-color: #ccc;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.step-section:last-child::after {
+  display: none;
+}
+
+.step-section .label {
+  position: absolute;
+  width: 40%;
+  top: 37rpx;
+  left: 0;
+  font-size: 30rpx;
+  color: #666;
+  text-indent: 2em;
+}
+
+.step-section .label text {
+  color: #ea3439;
+  font-size: 20rpx;
+}
+
+.step-section .main {
+  position: relative;
+  padding-left: 40%;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.step-section .main.arrow::after {
+  content: '';
+  position: absolute;
+  top: 10rpx;
+  right: 30rpx;
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  border-right: 2px solid #999;
+  border-bottom: 2px solid #999;
+  transform: rotate(-45deg);
+}
+
+.step-section .main input.short {
+  width: 70%;
+}
+
+.step-section .main .moneyUnit {
+  position: absolute;
+  top: 6rpx;
+  right: 170rpx;
+}
+
+.step-section .main.arrow .over {
+  padding-right: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholder, .selected {
+  color: #bdbdbd;
+}
+
+.step1 .step-form {
+  margin-bottom: 376rpx;
+}
+
+.saleText {
+  margin-right: 15rpx;
+}
+
+.showimg {
+  position: relative;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.showimg .cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.cover-desc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 26rpx;
+}
+
+.upload-handle {
+  padding-top: 65rpx;
+  width: 480rpx;
+  height: 236rpx;
+  border: 1px dotted #ccc;
+  text-align: center;
+  border-radius: 8rpx;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.upload-handle.small {
+  width: 300rpx;
+  height: 172rpx;
+  padding-top: 30rpx;
+}
+
+.upload-handle .iconfont {
+  font-size: 60rpx;
+  color: #ccc;
+}
+
+.upload-handle .desc {
+  color: #ccc;
+}
+
+.upload-cer-item {
+  display: inline-block;
+  width: 300rpx;
+  margin-bottom: 30rpx;
+  margin-left: 20px;
+}
+
+.upload-cer-item:nth-child(2) {
+  margin-left: 70rpx;
+}
+
+.upload-cer-item .cer-title {
+  font-size: 30rpx;
+  color: #666;
+}
+
+.upload-cer-item .upload-main {
+  margin-top: 30rpx;
+}
+
+.upload-cer-item .cer-title text {
+  color: #ea3439;
+}
+
+.upload-cer-item .upload-handle .desc {
+  color: #ccc;
+  font-size: 26rpx;
+}
+
+.step-success {
+  text-align: center;
+  background-color: #fff;
+  padding: 40px 0 60px;
+}
+
+.step-success .status1-img {
+  width: 132rpx;
+  height: 148rpx;
+}
+
+.step-success .status3-img {
+  width: 216rpx;
+  height: 199rpx;
+}
+
+.step-success .status-text {
+  font-size: 36rpx;
+  padding: 20rpx 0;
+}
+
+.step-success .status1-text {
+  color: #666;
+}
+
+.step-success .status2-text {
+  color: #ff2626;
+}
+
+.step-success .status3-text {
+  color: #008947;
+}
+
+.step4 .warm {
+  padding: 40px 30px 0;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.step4 .warm .warm-title {
+  color: #ff2626;
+  margin-bottom: 8rpx;
+}
+
+.preview-files {
+  display: inline-block;
+  width: 230rpx;
+  height: 57rpx;
+  border-radius: 28rpx;
+  border: 1px solid #1875f0;
+  color: #1875f0;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 57rpx;
+}
+
+.step4 .step-btn {
+  margin-top: 60rpx;
+}

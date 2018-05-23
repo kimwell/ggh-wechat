@@ -1,0 +1,21 @@
+<!--pages/index/news/index.wxml-->
+<view class='switch-tab'>
+  <view class='item {{ active == index ? "active" : "" }}' 
+  wx:for="{{ tabs }}" wx:key
+  bindtap='switchTab' data-i="{{ index }}">{{ item.label }}</view>
+</view>
+
+<view class='news-container'>
+  <view class='item' wx:for="{{ list }}" wx:key
+  bindtap='routeDetail' data-id="{{ item.id }}">
+    <view class='word'>
+      <view class='title'>{{ item.title }}</view>
+      <view class='pb'>
+        {{ item.author }}
+        <text style='float:right'>{{ item.time }}</text>   
+      </view>
+    </view>
+    <image class='img' src='{{ item.coverImage }}'></image>
+  </view>
+</view>
+

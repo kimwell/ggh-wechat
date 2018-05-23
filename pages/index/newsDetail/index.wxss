@@ -1,0 +1,4 @@
+/* pages/index/newsDetail/index.wxss */
+page{
+  background-color: #fff;
+}

@@ -1,0 +1,125 @@
+.picker-warp {
+  position: relative;
+  width: 100%;
+  height: 96rpx;
+  line-height: 48rpx;
+  background-color: #fafafa;
+  border: 1rpx solid #ddd;
+  padding: 24rpx 20rpx;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: #333;
+  border-radius: 4rpx;
+}
+.picker-warp.special{
+  height: 88rpx;
+  background-color: #fff;
+  font-size: 32rpx;
+  padding: 18rpx 20rpx;
+}
+.picker-warp .label {
+  position: absolute;
+  color: #666;
+  left: 20rpx;
+}
+
+.picker-warp .placeholder {
+  position: absolute;
+  right: 20rpx;
+  color: #999;
+}
+
+.picker-warp .value {
+  display: block;
+  right: 20rpx;
+  width: 100%;
+  padding-left: 100rpx;
+  box-sizing: border-box;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mask-cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.mask-cover .mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  filter: alpha(opacity=60);
+  opacity: 0.6;
+}
+
+.mask-cover .pick-items {
+  position: relative;
+  width: 660rpx;
+  min-height: 600rpx;
+  margin: 110rpx auto;
+  background-color: #fff;
+  z-index: 1001;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  padding: 40rpx 0 40rpx 30rpx;
+}
+
+.pick-items .title {
+  position: relative;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+.pick-items .title .su {
+  display: inline-block;
+  width: 8rpx;
+  height: 40rpx;
+  background: linear-gradient(-135.3deg, rgba(82, 122, 254, 1), rgba(67, 162, 254, 1));
+  margin-right: 20rpx;
+  vertical-align: sub;
+}
+
+.pick-items .title .ok-btn {
+  position: absolute;
+  right: 30rpx;
+  color: #1875f0;
+  font-weight: normal;
+}
+
+.pick-items .item-content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.picker-item {
+  display: block;
+  width: 180rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  color: #666;
+  border: 1rpx solid #979797;
+  border-radius: 4rpx;
+  text-align: center;
+  font-size: 28rpx;
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.picker-item.active {
+  color: #1875f0;
+  border-color: #1875f0;
+}

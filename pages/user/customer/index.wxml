@@ -1,0 +1,84 @@
+<view class="common-cover {{coverClass ? 'show':''}}">
+  <view class='cover-header'>
+    <text bindtap='closeCover'>取消</text>
+    选择业务员
+  </view>
+  <scroll-view scroll-y style='height: 323px;'>
+    <view class='cover-item' wx:for="{{saleMan}}" wx:key="index" data-item="{{item}}" bindtap='selectMan'>
+      <text>{{item.saleName}}</text>
+      <text>{{item.saleMobile}}</text>
+    </view>
+  </scroll-view>
+</view>
+<view class="common-cover-mask {{coverClass ? 'show':''}}"></view>
+<view class="search-wrapper" wx:if="{{ role == 'admin' || role == 'vip' }}">
+  <view class='search-name'>
+    <text class='iconfont icon-i-search'></text>
+    <input type='text' placeholder='买家公司名称模糊查询' placeholder-class='textHolder' confirm-type='search' bindconfirm="searchConfirm"></input>
+  </view>
+  <view class='search-filter'>
+    <view class="search-filter-cell {{filterStatus === idx ? 'active':''}}" wx:for="{{filterNav}}" wx:for-index="idx" wx:key="idx" data-idx="{{idx}}" bindtap='switchFilter'>{{item.name}}</view>
+  </view>
+</view>
+<view class="footer" wx:if="{{ role == 'admin' || role == 'vip' }}">
+  <view class='check' bindtap='checkAlls'>
+    <text class="iconfont {{checkAll ? 'icon-BAI-fuxuankuangs':'icon-BAI-fuxuankuang'}}"></text>
+    <text>全选</text>
+  </view>
+  <view class='select' bindtap='showCover'>
+    <text wx:if="{{bindSaleApi.saleName ==''}}">选择业务员</text>
+    <view wx:if="{{bindSaleApi.saleName !=''}}" class='saleSelected'>
+      <view>业务员：{{bindSaleApi.saleName}}</view>
+      <view>{{bindSaleApi.saleMobile}}</view>
+    </view>
+  </view>
+  <view class='btn' bindtap='allotAction'>
+    <text>分配({{selectLen}})</text>
+  </view>
+</view>
+<view class='view-page {{  role == "admin" || role == "vip" ? "" : "no-action" }}'>
+  <view class='allot-main'>
+    <view class='allot-list' wx:for="{{list}}" wx:key="index" wx:for-index="idx">
+      <text class="iconfont {{item.isChecked ? 'icon-BAI-fuxuankuangs':'icon-BAI-fuxuankuang'}}" data-item="{{item}}" data-idx="{{idx}}" bindtap='checkAllot'></text>
+      <view class='company'>
+        <view class='company-name'>{{item.companyName}}
+          <grade level="{{item.marginLevel}}"></grade>
+        </view>
+        <view class='name'>
+          <text>{{item.contact}}</text>
+          <text>{{item.contactNum}}</text>
+        </view>
+        <view class='contact'>
+          <view class='name'>{{item.saleName !=''?item.saleName:'未分配'}}</view>
+        </view>
+      </view>
+      <view class='time'>最近更新于：{{item.uTime}}
+        <text>{{item.updateUser}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='loadMore' wx:if="{{hasMore}}">努力加载中...</view>
+  <view class='finished' wx:if="{{finished && list.length > 10}}">没有更多内容了</view>
+    <view class='noData' wx:if="{{list == 0 && !hasMore}}">
+      <view>
+        <image src='../../../static/images/nodata.png'></image>
+      </view>
+      <text>暂无数据</text>
+    </view>
+</view>
+<view class="filter-wrap" hidden='{{filter}}'>
+  <scroll-view scroll-y style="height:{{scrollHeight}}px;" hidden='{{saleManShow}}'>
+    <view wx:for="{{saleMan}}" wx:key="idx" wx:for-index="idx" data-idx="{{idx}}" data-item="{{item}}" bindtap='selectSaleMan' class="saleman-item {{saleManStatus == idx ? 'active':''}}">
+      <text class='item'>{{item.saleName}}</text>
+      <text class='item'>{{item.saleMobile}}</text>
+      <text class='iconfont icon-duihao'></text>
+    </view>
+  </scroll-view>
+  <scroll-view class='allot' scroll-y style="height:{{scrollHeight}}px;" hidden='{{statusShow}}'>
+    <text wx:for="{{stautsNav}}" wx:key="index" class="allot-item {{allotStatus === index +1 ? 'active':''}}" data-item="{{item}}" bindtap='switchAllot'>{{item.name}}</text>
+  </scroll-view>
+  <view class='filter-footer'>
+    <view class='footer-btn' bindtap='clearFilter'>清空</view>
+    <view class='footer-btn' bindtap='serarchFilter'>确定</view>
+  </view>
+</view>

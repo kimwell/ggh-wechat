@@ -1,0 +1,61 @@
+<view class="user">
+  <view class='header'>
+    <view class='header-info'>
+      <view class='account'>{{info.mobile}}
+        <roleTag role="{{info.usrType}}"></roleTag>
+      </view>
+      <view class='company'>{{info.buserInfo.companyName}}
+        <grade level="{{info.buserInfo.marginLevel}}"></grade>
+      </view>
+    </view>
+    <text class='setIcon iconfont icon-shezhi' bindtap='goSetting'></text>
+  </view>
+  <view class='user-nav' wx:if="{{ userNav.length > 0 }}">
+    <view wx:for="{{userNav}}" wx:key="{{item.id}}" wx:for-index="idx" class="user-nav-item {{navStatus == idx ? 'current':''}}" data-idx="{{idx}}" bindtap='switchNav'>{{item.name}}</view>
+  </view>
+  <view class='user-cell'>
+    <view class='user-cell-main' wx:if="{{ role != 'normal' }}">
+      <view class='user-cell-header'>
+        <navigator url="{{ navStatus == 0 ? '/pages/orders/buyerOrder/index' : '/pages/orders/sellerOrder/index' }}" class='header-more'>查看全部</navigator>订单管理</view>
+      <view class='user-cell-content'>
+        <view class='content'>
+          <view class='content-item' wx:for="{{orderNav}}" wx:for-index="idx" wx:key="idx" bindtap="routeToOrder" data-item="{{ item }}">
+            <view class='icon'>
+              <text wx:if="{{item.count > 0}}" class="count">{{item.count < 99 ? item.count:'···'}}</text>
+              <image src="{{item.icon}}"></image>
+            </view>
+            <view class='text'>{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='user-cell' wx:if="{{navStatus === 1}}">
+    <view class='user-cell-main'>
+      <view class='user-cell-header'>业务管理</view>
+      <view class='user-cell-content'>
+        <view class='content'>
+          <view class='content-item' wx:for="{{businessNav}}" wx:for-index="idx" wx:key="idx" data-route="{{item.route}}" bindtap='goRoute'>
+            <view class='icon'>
+              <image src="{{item.icon}}"></image>
+            </view>
+            <view class='text'>{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='user-cell'>
+    <view class='user-cell-main'>
+      <view class='user-cell-nav' wx:if="{{navStatus === 0 && (role == 'vip' || role == 'admin') }}" bindtap='goSupplier'>供应商管理</view>
+      <view class='user-cell-nav' wx:if="{{ role == 'vip' || role == 'admin' }}" data-company="{{info.companyId}}" bindtap='goData'>数据分析</view>
+      <view class='user-cell-nav' bindtap='goUnion'>诚信联盟</view>
+      <view class='user-cell-nav sale'>我的专员
+        <view class='saleInfo'>
+          <text class='name'>{{info.buserInfo.saleName}}</text>
+          <text class='mobile' bindtap='makeCall' data-tel="{{info.buserInfo.saleMobile}}">{{info.buserInfo.saleMobile}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

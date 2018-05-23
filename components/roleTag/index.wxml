@@ -1,0 +1,2 @@
+<wxs module="roleTag" src="../../filter/roleTag.wxs"></wxs>
+<text wx:for="{{roleArr}}" wx:for-index="idx" wx:key="idx" class="role-tag tag{{item}}">{{roleTag.userType(item)}}</text>

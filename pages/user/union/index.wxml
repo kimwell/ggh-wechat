@@ -1,0 +1,27 @@
+<view class="union">
+  <view class='header'>诚信联盟诚信质保单位说明</view>
+  <view class='union-main'>
+    <view class='desc'>诚信联盟会员的保证金为平台先行赔付金额的上限。如：某公司在经营过程中出现冒充材质等失信情况。</view>
+    <view class='desc'>经认定属实，平台会将其在诚信联盟的保证金作为赔付金额进行先行赔付。</view>
+  </view>
+  <view class='union-table'>
+    <view class='union-tr'>
+      <view class='union-td'>
+        <image src='/static/images/grade3.png' style='width:80rpx;height:28rpx;'></image>
+      </view>
+      <view class='union-td'>500万级诚信质保单位</view>
+    </view>
+    <view class='union-tr'>
+      <view class='union-td'>
+        <image src='/static/images/grade2.png' style='width:80rpx;height:28rpx;'></image>
+      </view>
+      <view class='union-td'>100万级诚信质保单位</view>
+    </view>
+    <view class='union-tr'>
+      <view class='union-td'>
+        <image src='/static/images/grade1.png' style='width:66rpx;height:28rpx;'></image>
+      </view>
+      <view class='union-td'>50万级诚信质保单位</view>
+    </view>
+  </view>
+</view>

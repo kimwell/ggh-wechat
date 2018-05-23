@@ -1,0 +1,62 @@
+<view class="account">
+  <view class='account-main'>
+    <view class='account-from'>
+      <view class='account-from-cell'>
+        <view class='from-cell-title'>公司名称</view>
+        <view class='from-cell-main'>
+          <input type='text' value='{{companyName}}' disabled></input>
+        </view>
+      </view>
+      <view class='account-from-cell'>
+        <view class='from-cell-title'><text>*</text>姓名</view>
+        <view class='from-cell-main'>
+          <input type='text' value='{{apiData.name}}' placeholder='请填写姓名' bindinput='nameHandle'></input>
+        </view>
+      </view>
+      <view class='account-from-cell'>
+        <view class='from-cell-title'><text>*</text>登录账号</view>
+        <view class='from-cell-main'>
+          <input type='text' value='{{apiData.mobile}}' placeholder='请输入11位手机账号' bindinput='telHandle'></input>
+        </view>
+      </view>
+      <view class='account-from-cell'>
+        <view class='from-cell-title'><text wx:if="{{!isEdit}}">*</text>密码</view>
+        <view class='from-cell-main'>
+          <input type='password' placeholder='请输入6-16位数字和字母' bindinput='pswdHandle'></input>
+        </view>
+      </view>
+      <view class='account-from-cell'>
+        <view class='from-cell-title'>
+          QQ
+        </view>
+        <view class='from-cell-main'>
+          <input type='text' value='{{apiData.qq}}' placeholder='请输入QQ号' bindinput='qqHandle'></input>
+        </view>
+      </view>
+      <view class='account-from-cell'>
+        <view class='from-cell-title'><text>*</text>角色</view>
+        <view class='from-cell-main'>
+          <checkbox-group bindchange="checkboxChange">
+            <label class="checkbox" wx:for="{{userType}}" wx:key="index">
+              <checkbox value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.disable ? true: false}}" />{{item.name}}
+            </label>
+          </checkbox-group>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='account-remark'>
+    <view class='remark-title'>备注</view>
+    <view>
+      <textarea placeholder='请填写备注' value='{{apiData.remark}}' placeholder-class="placeHolder" bindinput='areaHandle'></textarea>
+    </view>
+  </view>
+  <view class='account-btn'>
+    <view class='btn'>
+      <button type='default' bindtap='goQuit'>取消</button>
+    </view>
+    <view class='btn'>
+      <button type='primary' bindtap='goSure'>{{isEdit ? '确认修改':'确认添加'}}</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+<!--components/orderTemp/salesmanSome/index.wxml-->
+
+<view class='compny-list'>
+  <view class='item' wx:for="{{ list }}" wx:key bindtap='checItem' data-i="{{ index }}">
+    <text class='iconfont {{ item.check ? "icon-BAI-fuxuankuangs" : "icon-BAI-fuxuankuang" }}'></text>
+    <view class='inner-box'>
+      <view class='compony-name'>{{ item.companyName }}</view>
+      <view class='ren'>
+        {{ item.contactName }} {{ item.contactNum }}
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='bottom-bar'>
+  <view class='item item1' bindtap='setCheckAll'>
+    <text class='iconfont {{ allCheck ? "icon-BAI-fuxuankuangs" : "icon-BAI-fuxuankuang" }}'></text> 全选
+  </view>
+  <view class='item item2' wx:if="{{ activeSale == null }}" bindtap='showPicker'>选择业务员</view>
+  <view class='item item2' wx:else  bindtap='showPicker'>
+    <view class='sale'>业务员： {{ sales[activeSale].saleName }}</view>
+    <view class='mobile'>{{ sales[activeSale].saleMobile }}</view>
+  </view>
+  <view class='item item3' bindtap='fpSome'>分配（{{ checkCount }}）</view>
+</view>
+
+
+<view class='selecter' wx:if="{{ pickerShow }}">
+  <view class='inner'>
+    <view class='header'>
+      选择业务员
+      <text class='close' bindtap='hidePicker'>取消</text>
+    </view>
+    <scroll-view class='content' scroll-y>
+      <view class='item' wx:for="{{ sales }}" wx:key bindtap='pickSaler' data-i="{{ index }}">
+        {{ item.saleName }}
+        <text class='tel'>{{ item.saleMobile }}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

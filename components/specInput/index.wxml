@@ -1,0 +1,49 @@
+<!--components/specInput/index.wxml-->
+<view class='input-warp' wx:if="{{ !sepcType }}">
+  <text class='label'>{{ title ? title : '' }}</text>
+  <input bindinput="textIn" type="{{ inType }}" placeholder="{{ placeholderShow ? '请输入' : '' }}" value="{{ specifications }}" />
+</view>
+
+<view class='spec-warp' wx:else  bindtap="showPicke">
+  <view class='item' style='width:180rpx'>
+    厚
+    <text class='value'>{{ params.height }}</text>
+  </view>
+  <view class='item'>
+    宽
+    <text class='value'>{{ params.width }}</text>
+  </view>
+  <view class='item no-mr'>
+    长
+    <text class='value'>{{ params.length }}</text>
+  </view>
+</view>
+
+
+<view class='spec-picker' wx:if="{{ specPickshow }}">
+  <view class='from-group'>
+    <label class='group-item'>
+      <text class='label'>厚</text>
+      <input class='input' bindinput="bindHeight" bindfocus="bindHeight" value="{{ params.height }}" placeholder="请输入" />
+    </label>
+    <label class='group-item'>
+      <text class='label'>宽</text>
+      <input class='input' bindinput="bindWidth" bindfocus="bindWidth" value="{{ params.width }}" placeholder="请输入" />
+    </label>
+    <label class='group-item'>
+      <text class='label'>长</text>
+      <input class='input' bindinput="bindLength" bindfocus="bindLength" value="{{ params.length }}" placeholder="请输入" />
+    </label>
+  </view>
+
+
+  <view class='rd-contnet'>
+    <text class='tit'>推荐规格</text>
+    <view wx:for="{{ rdList }}" wx:key="{{ item.id }}">
+      <text class='rd-item' bindtap='fillData' data-index="{{ index }}">{{ item.height ? item.height + '*' : '' }}{{ item.width }}*{{ item.length }}</text>
+    </view>
+  </view>
+  <button class="btn-save" bindtap='save'>保存</button>
+  <button class="btn-cancel" bindtap='close'>返回</button>
+</view>
+

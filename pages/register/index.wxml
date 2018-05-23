@@ -1,0 +1,33 @@
+<view class="common-form">
+  <view class="common-form-header">欢迎注册钢刚好</view>
+  <view class='form-content'>
+    <view class='error-msg' wx:if="errorMsg">{{msg}}</view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section">
+        <input name="user" type="number" data-types="1" bindinput='bindUser' bindblur='checkValue' maxlength='11' placeholder="请输入手机号码" />
+      </view>
+      <view class="section short">
+        <input name="msmcode" bindinput='bindCode' data-types="2" bindblur='checkValue' type="number" maxlength='11' placeholder="请输入验证码" />
+        <button class='codeBtn' bindtap='getCode'><text wx:if="{{!disable || !send}}">获取验证码</text>
+      <text wx:if="{{disable && send}}">剩余{{second}}秒</text></button>
+      </view>
+      <view class="section">
+        <input password type='text' bindinput='bindPsd1' data-types="3" bindblur='checkValue' name="passwordOne" placeholder="请设置密码，最少6位字符" />
+      </view>
+      <view class="section">
+        <input password type='text' bindinput='bindPsd2' data-types="4" bindblur='checkValue' name="passwordTwo" placeholder="再次输入密码" />
+      </view>
+      <view class="forget-section flxbox">
+        <view class='flx'>
+          <button formType="submit" type='primary' class='login'>注册</button>
+        </view>
+        <view class='flx forget'>
+          <navigator hover-class="none" url="./parts/protocol/index">注册同意《用户协议》</navigator>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>
+<view class="common-bottom">
+  <navigator url="../login/index" hover-class="none">已经有账号？去登录</navigator>
+</view>

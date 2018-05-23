@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "子账号管理",
+  "usingComponents": {
+    "roleTag": "../../../components/roleTag/index"
+  }
+}

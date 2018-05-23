@@ -1,0 +1,58 @@
+<view class="company">
+  <view class='company-item'>
+    <view class='company-item-title'>
+      公司名称
+    </view>
+    <view class='company-item-main'>
+      {{item.buserInfo.companyName}}
+    </view>
+  </view>
+  <view class='company-item'>
+    <view class='company-item-title'>
+      资质信息
+    </view>
+    <view class='company-item-main'>
+      <gradeInfo level="{{item.buserInfo.marginLevel}}" empty="false"></gradeInfo>
+    </view>
+  </view>
+  <view class='company-item'>
+    <view class='company-item-title'>
+      联系人
+    </view>
+    <view class='company-item-main'>
+      {{item.buserInfo.contact}}
+    </view>
+  </view>
+  <view class='company-item'>
+    <view class='company-item-title'>
+      联系电话
+    </view>
+    <view class='company-item-main'>
+      {{item.buserInfo.contactNum}} <text class='call' bindtap='makeCall' data-tel="{{item.buserInfo.contactNum}}">拨号</text>
+    </view>
+  </view>
+  <view class='company-item'>
+    <view class='company-item-title'>
+      QQ
+    </view>
+    <view class='company-item-main'>
+      {{item.buserInfo.qq !=''?item.buserInfo.qq:'暂无'}}
+    </view>
+  </view>
+  <view class='company-item'>
+    <view class='company-item-title'>
+      仓库
+    </view>
+    <view class='company-item-main'>
+      {{item.buserInfo.storeHouseName != '' ? item.buserInfo.storeHouseName : '暂无'}}
+    </view>
+  </view>
+  <view class='company-item'>
+    <view class='company-item-title'>
+      优惠信息
+    </view>
+    <view class='company-item-main'>
+      {{item.buserInfo.proInfo !='' ? item.buserInfo.proInfo :'暂无'}}
+    </view>
+  </view>
+</view>

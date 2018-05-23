@@ -1,0 +1,100 @@
+/* components/orderTemp/cancelTip/index.wxss */
+@import '/static/css/fonts/fonts.wxss';
+.cancel-tip-container{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.6);
+  z-index: 999;
+  left: 0;
+  top: 0;
+}
+
+.panel{
+  position: relative;
+  width: 660rpx;
+  height: 844rpx;
+  margin: 140rpx auto 0;
+  background-color: #fff;
+  border-radius: 8rpx;
+}
+
+.panel .title{
+  width: 100%;
+  text-align: center;
+  height: 105rpx;
+  line-height: 105rpx;
+  font-size: 32rpx;
+  color: #333;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.panel .tip{
+  width: 600rpx;
+  line-height: 40rpx;
+  margin: 30rpx auto 40rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.panel .resons{
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 68rpx; 
+}
+
+.panel .resons .group{
+  width: 100%;
+  height: 40rpx;
+  margin-bottom: 30rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.group .check{
+  font-size: 32rpx;
+  color: #666;
+}
+
+.check.icon-radioon{
+  color: #1875F0;
+}
+
+.group .text{
+  width: 478rpx;
+  height: 120rpx;
+  border: 1rpx solid #ddd;
+  background-color: #FAFAFA;
+  box-sizing: border-box;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #666;  
+  margin-left: 42rpx;
+  border-radius: 4rpx;
+}
+
+.btns{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  bottom: 0;
+  left: 0;
+  font-size: 30rpx;
+  border-top: 1rpx solid #ddd;
+}
+
+.btns .btn{
+  flex: 1;
+  text-align: center;
+  color: #BDBDBD;
+}
+
+.btns .btn.br{
+  border-right: 1rpx solid #ddd;
+}
+
+.btns .btn.parmy{
+  color: #1875F0;
+}

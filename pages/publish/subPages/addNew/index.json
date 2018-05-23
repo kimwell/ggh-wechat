@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "新增求购",
+  "usingComponents": {
+    "ajaxPicker": "/components/ajaxPicker/index",
+    "cityPicker": "/components/cityPicker/index",
+    "ggInput":"/components/input/index",
+    "specInput":"/components/specInput/index"
+  }
+}

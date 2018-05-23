@@ -1,0 +1,67 @@
+<view class="searchBar">
+  <view class='search'>
+    <text class='iconfont icon-i-search search-icon'></text>
+    <text class='iconfont icon-delete search-del' bindtap='clearValue'></text>
+    <input type='text' value='{{pageApi.name}}' class='search-txt' bindinput='nameHandle' placeholder='请输入姓名或账户' confirm-type="search" bindconfirm="searchConfirm"></input>
+    <text class='quit' bindtap='quitSearch'>取消</text>
+  </view>
+</view>
+<view class='account-wrap'>
+  <view class='account-item' wx:for="{{list}}" wx:key="index">
+    <view class='item-header'>
+      <text class='name'>{{item.name}}</text>
+      <text class='dot'></text>
+      <text>{{item.mobile}}</text>
+      <view class='role'>
+        <roleTag role="{{item.usrType}}"></roleTag>
+      </view>
+    </view>
+    <view class='item-body'>
+      <view class='remark'>QQ:
+        <text>{{item.qq}}</text>
+      </view>
+      <view class='remark'>备注:
+        <text>{{item.remark !=''?item.remark:'暂无备注'}}</text>
+      </view>
+      <view class='create'>{{item.createUser}}
+        <text>创建于</text>{{item.ctime}}</view>
+      <view class='create'>{{item.updateUser}}
+        <text>更新于 </text>{{item.utime}}</view>
+    </view>
+    <view class='item-footer'>
+      <text bindtap='resetBtn' data-item="{{item}}">修改密码</text>
+      <text data-types="1" data-item="{{item}}" bindtap='goRoute'>编辑</text>
+      <text data-item="{{item}}" bindtap='delAction'>删除</text>
+    </view>
+  </view>
+  <view class='noData' wx:if="{{list == 0 && !hasMore}}">
+    <view>
+      <image src='../../../static/images/nodata.png'></image>
+    </view>
+    <text>暂无数据</text>
+  </view>
+</view>
+<view class='plus' data-types="0" bindtap='goRoute'>
+  <image src="../../../static/images/plus-icon.png"></image>
+</view>
+<view class='reset' wx:if="{{showModal}}">
+  <view class='reset-header'>修改密码</view>
+  <view class='reset-body'>
+    <view class='cell'>
+      <view class='cell-title'>姓名</view>
+      <view class='cell-main'>{{name}}</view>
+    </view>
+    <view class='cell'>
+      <view class='cell-title'>新密码</view>
+      <view class='cell-main'>
+        <input type='password' value='{{resetApi.password}}' bindinput='psdHandle' class='reset-txt' placeholder='6~16为数字或字母'></input>
+      </view>
+    </view>
+  </view>
+  <view class='reset-footer'>
+    <view class='btn' bindtap='close'>取消</view>
+    <view class='btn' bindtap='savePassword'>保存</view>
+  </view>
+</view>
+<view class='reset-mask' wx:if="{{showModal}}">
+</view>

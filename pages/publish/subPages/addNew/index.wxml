@@ -1,0 +1,56 @@
+<!--pages/publish/subPages/addNew/index.wxml-->
+<view class='publish-container'>
+  <text class='h3'>货源地</text>
+  <view class='pb-group no-mr'>
+    <cityPicker title="货源地" old="{{ item.locationName }}" bindonpick="cityOnpick"></cityPicker>
+  </view>
+
+  <text class='h3'>商品属性</text>
+  <view class='pb-group'>
+    <ajaxPicker api="findIronTypes" old="{{ item.ironTypeName }}" title="品名" bindonpick="ironOnpick"></ajaxPicker>
+  </view>
+
+  <view class='pb-group half mr'>
+    <ajaxPicker api="findMaterials" old="{{ item.materialName }}" title="材质" bindonpick="materialOnpick"></ajaxPicker>
+  </view>
+  <view class='pb-group half'>
+    <ajaxPicker api="findSurFace" old="{{ item.surfaceName }}" title="表面" bindonpick="surfaceOnpick"></ajaxPicker>
+  </view>
+
+  <view class='pb-group'>
+    <specInput title="规格" specnormal="{{ item.specifications }}" spec="{{ item.height + '*' + item.width + '*' + item.length }}" ironType="{{ {id:item.ironTypeId,name:item.ironTypeName} }}" surface="{{ {id:item.surfaceId,name:item.surfaceName} }}" bindonchange="specOnchange"></specInput>
+  </view>
+
+  <view class='pb-group'>
+    <ajaxPicker api="findProPlaces" old="{{ item.proPlacesName }}"  multi title="产地" bindonpick="proPlacesOnpick"></ajaxPicker>
+  </view>
+
+  <text class='h3'>更多属性</text>
+  <view class='pb-group'>
+    <ggInput title="公差" wx:if="{{ item.ironTypeName == '不锈钢板' || item.ironTypeName == '不锈钢卷' }}" old="{{ item.tolerance }}" bindoninput="toleranceOninput"></ggInput>
+  </view>
+  <view class='pb-group half mr'>
+    <ggInput title="重量" old="{{ item.weights }}" bindoninput="weightOninput" unit="{{ item.weightUnit }}" inType="digit"></ggInput>
+  </view>
+  <view class='pb-group half'>
+    <ggInput title="数量" old="{{ item.numbers }}" bindoninput="numberOninput" unit="{{ item.numberUnit }}" inType="digit"></ggInput>
+  </view>
+
+
+  <text class='h3'>备注信息</text>
+  <view class='pb-group' wx:if="{{ textareaHide }}">
+    <textarea class='pb-textarea' value="{{ item.remark }}" maxlength="35" bindinput="bindRemark" placeholder="请填写其它要求，不超过35个字符" />
+  </view>
+</view>
+
+<!-- 底部栏目 -->
+<view class='bottom-btns' wx:if="{{ model != 'edit' }}">
+  <text class='iconfont icon-daojishi' bindtap='routeTohis'></text>
+  <button class='normal' bindtap='save'>保存</button>
+  <button type="primary" bindtap='pub'>发布</button>
+</view>
+
+<view class='bottom-btns' wx:else>
+  <button class='primary' style='width:650rpx' wx:if="{{ cIndex != null }}" bindtap='edit'>确认修改</button>
+  <button class='primary' style='width:650rpx' wx:else bindtap='save'>确认修改</button>
+</view>

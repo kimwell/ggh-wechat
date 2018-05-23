@@ -1,0 +1,2 @@
+<!--pages/orders/buyerOrder/index.wxml-->
+<orderTemp tabs="{{ tabs }}" id="subPage" ac="{{ activeSt }}" isBuyer apiUrl="{{ 'getBuyerOrder' }}"></orderTemp>

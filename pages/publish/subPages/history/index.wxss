@@ -1,0 +1,97 @@
+/* pages/publish/subPages/history/index.wxss */
+.tip{
+  font-size: 22rpx;
+  color: #999;
+  margin: 30rpx;
+}
+
+.irons-container{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.irons-container .item{
+  position: relative;
+  width: 100%;
+  height: 248rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+
+.item .base {
+  position: relative;
+  width: 100%;
+  height: 44rpx;
+  line-height: 44rpx;
+  margin-bottom: 20rpx;
+}
+
+.base .text {
+  color: #333;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.base .dot {
+  display: inline-block;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 12rpx;
+  background-color: #1875F0;
+  vertical-align: middle;
+  margin: -10rpx 10rpx 0;
+}
+
+.base .location {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+  height: 40rpx;
+  line-height: 38rpx;
+  border: 1rpx solid #1875F0;
+  color: #1875F0;
+  border-radius: 8rpx;
+  padding: 0 8rpx;
+  font-size: 28rpx;
+}
+
+.base .location .iconfont {
+  color: #1875F0;
+}
+
+.item .normal {
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #666;
+  margin-top: 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+}
+
+.item .normal.gray{
+  color: #999;
+  font-size: 24rpx;
+}
+
+.item .normal .split{
+  display: inline-block;
+  width: 3rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  margin: 0 10rpx;
+  background-color: #ccc;
+}
+
+.item .normal.date{
+  font-size: 24rpx;
+  text-align: right;
+}

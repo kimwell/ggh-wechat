@@ -1,0 +1,11 @@
+.grade{
+  display: inline-block;
+}
+.grade image{
+  width: 80rpx;
+  height: 28rpx;
+  vertical-align: -2px;
+}
+.grade.grade1 image{
+  width: 66rpx;
+}

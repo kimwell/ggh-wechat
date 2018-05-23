@@ -1,0 +1,85 @@
+page {
+  background-color: #fff;
+}
+
+.scope {
+  padding: 40rpx 30rpx;
+}
+
+.scope-list {
+  margin-bottom: 40rpx;
+}
+
+.scope-list .scope-header {
+  position: relative;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.checkall {
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+}
+
+.checkall .iconfont {
+  font-size: 46rpx;
+  vertical-align: -2px;
+  margin-right: 10rpx;
+}
+
+.checkall .iconfont.select {
+  color: #1875f0;
+}
+
+.scope-body view {
+  position: relative;
+  display: inline-block;
+  margin-right: 22rpx;
+  margin-bottom: 16rpx;
+  background-color: #f5f5f5;
+  font-size: 24rpx;
+  color: #333;
+  padding: 16rpx 20rpx;
+  border: 1px solid transparent;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.scope-body view.selected {
+  color: #1875f0;
+  border: 1px solid #1875f0;
+  background-color: #fff;
+}
+
+.scope-body view text {
+  display: none;
+}
+
+.scope-body view.selected text {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  font-size: 13rpx;
+  z-index: 9;
+  text-align: right;
+}
+
+.scope-body view.selected::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 28rpx solid #1875f0;
+  border-left: 28rpx solid transparent;
+  z-index: 5;
+}
+
+.save-btn {
+  padding: 60rpx 30rpx 0;
+}

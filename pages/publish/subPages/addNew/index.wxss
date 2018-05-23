@@ -1,0 +1,81 @@
+/* pages/publish/subPages/addNew/index.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.publish-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+}
+
+.publish-container .h3 {
+  display: block;
+  width: 100%;
+  height: 40rpx;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.publish-container .pb-group {
+  width: 100%;
+  margin-bottom: 34rpx;
+}
+
+.pb-group.half {
+  width: 330rpx;
+}
+
+.pb-group.one-third {
+  width: 180rpx;
+}
+
+.pb-group.no-mr {
+  margin-bottom: 0;
+}
+
+.pb-group.mr {
+  margin-right: 30rpx;
+}
+
+.pb-textarea {
+  width: 100%;
+  height: 144rpx;
+  border-radius: 4rpx;
+  background-color: #fafafa;
+  box-sizing: border-box;
+  border: 1rpx solid #ddd;
+  padding: 24rpx 20rpx;
+  font-size: 34rpx;
+}
+
+.bottom-btns {
+  width: 690rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  padding: 18rpx 30rpx 22rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #ccc;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.bottom-btns .iconfont {
+  font-size: 60rpx;
+  color: #1875f0;
+  vertical-align: middle;
+}
+
+.bottom-btns button {
+  display: inline-block;
+  vertical-align: middle;
+  width: 270rpx;
+  margin-left: 40rpx!important;
+}

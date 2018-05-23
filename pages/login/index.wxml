@@ -1,0 +1,26 @@
+<view class="common-form">
+  <view class="common-form-header">欢迎登录钢刚好</view>
+  <view class='form-content'>
+    <view class='error-msg' wx:if="errorMsg">{{msg}}</view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section">
+        <input name="user" type="number" bindblur="userHandle" maxlength='11' placeholder="请输入手机号码" />
+      </view>
+      <view class="section">
+        <input password type='text' bindblur='passwordHandle' name="password" placeholder="请输入密码" />
+      </view>
+      <view class="forget-section flxbox">
+        <view class='flx'>
+          <button formType="submit" type='primary' class='login'>登录</button>
+        </view>
+        <view class='flx forget'>
+          <navigator hover-class="none" url="./forget/index">忘记密码</navigator>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>
+<view class="common-bottom">
+  <navigator url="/pages/index/index" open-type="reLaunch" style='padding-bottom:20rpx;' hover-class="none">去首页</navigator>
+  <navigator url="../register/index" hover-class="none">还没有账号？去注册</navigator>
+</view>

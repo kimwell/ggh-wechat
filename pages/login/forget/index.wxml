@@ -1,0 +1,24 @@
+<view class="common-form">
+  <view class="common-form-header">找回您的密码</view>
+  <view class='form-content'>
+    <view class='error-msg' wx:if="errorMsg">{{msg}}</view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section">
+        <input name="user" bindinput='userBind' bindblur='userHandle' type="number" maxlength='11' placeholder="请输入手机号码" />
+      </view>
+      <view class="section short">
+        <input name="msmcode" bindblur='msmcodeHandle' type="number" maxlength='11' placeholder="请输入验证码" />
+        <button bindtap='getMsmCode' class='codeBtn'><text wx:if="{{!disable || !send}}">获取验证码</text>
+      <text wx:if="{{disable && send}}">剩余{{second}}秒</text></button>
+      </view>
+      <view class="section">
+        <input password type='text' bindblur='passwordHandle' name="password" placeholder="请设置新密码" />
+      </view>
+      <view class="forget-section flxbox">
+        <view class='flx'>
+          <button formType="submit" type='primary' class='login'>确定</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

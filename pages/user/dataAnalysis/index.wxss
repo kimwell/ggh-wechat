@@ -1,0 +1,97 @@
+page {
+  background-color: #fff;
+}
+
+.nav {
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.nav .nav-item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  z-index: 9;
+  background-color: #fff;
+}
+
+.nav .nav-item.current {
+  color: #1875f0;
+}
+
+.nav .nav-item.current::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: calc(50% - 60rpx);
+  width: 120rpx;
+  height: 2rpx;
+  background-color: #1875f0;
+}
+
+.filterData {
+  padding: 40rpx 30rpx 22rpx;
+  background-color: #fff;
+  box-shadow: 0px 0px 75px 0px rgba(67, 73, 106, 0.1);
+}
+
+.filterData .del {
+  margin-right: 22rpx;
+}
+
+.filterData .time {
+  display: inline-block;
+  width: 218rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  background-color: #f9faff;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  color: #222;
+  vertical-align: middle;
+}
+
+.filterData .split {
+  display: inline-block;
+  margin: 0 14rpx;
+  color: #c2c6da;
+}
+
+.filterData .search {
+  margin-left: 16rpx;
+  display: inline-block;
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 21rpx;
+  border: 1px solid #1875f0;
+  font-size: 22rpx;
+  color: #1875f0;
+  text-align: center;
+}
+
+.data-detail {
+  padding-top: 78rpx;
+  font-size: 24rpx;
+  color: #222;
+}
+
+.detail-wrap .detail-item {
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+  margin-bottom: 100rpx;
+}
+
+.detail-wrap .detail-item .name {
+  margin-bottom: 30rpx;
+}
+
+.detail-wrap .detail-item .count {
+  font-size: 40rpx;
+  color: #1875f0;
+}

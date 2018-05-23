@@ -1,0 +1,134 @@
+/* components/orderTemp/screen/index.wxss */
+page{
+  background-color: #fff;
+}
+
+.screen-container{
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.screen-container .group{
+  width: 100%;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.group.no-b{
+  border: 0;
+}
+
+.group .title{
+  font-size: 30rpx;
+  color: #666;
+  line-height: 42rpx;
+  margin-top: 20rpx;
+}
+
+.screen-container .search-warp{
+  position: relative;
+  width: 100%;
+  height: 64rpx;
+  line-height: 64rpx;
+  background-color: #F4F5F5;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+
+.search-warp .iconfont{
+  position: absolute;
+  left: 20rpx;
+}
+
+.search-warp .goast{
+  width: 100%;
+  height: 100%;
+  padding: 7rpx 40rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+
+.picker-warp{
+  width: 100%;
+  height: 80rpx;
+  background-color: #F4F5F5;
+  margin-top: 16rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  font-size: 30rpx;
+  color: #bdbdbd;
+}
+
+.picker-warp .picker {
+  display: inline-block;
+  width: 295rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.picker-warp .split{
+  display: inline-block;
+  width: 20rpx;
+  height: 4rpx;
+  background-color: #999;
+  margin: 0 20rpx;
+  vertical-align: middle;
+}
+
+.status{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 30rpx;
+}
+
+.status .item{
+  width: 210rpx;
+  height: 68rpx;
+  background-color: #E9E9E9;
+  color: #666;
+  text-align: center;
+  line-height: 68rpx;
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+  margin-right: 30rpx;
+  border-radius: 4rpx;
+}
+
+.status .item:nth-child(3n){
+  margin-right: 0;
+}
+
+.status .item.active{
+  color: #1875F0;
+  background-color: rgba(24,117,240,.2);
+}
+
+.bottom-btns{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 104rpx;
+  line-height: 104rpx;
+  border-top: 1rpx solid #ddd;
+  text-align: center;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.bottom-btns .btn{
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.bottom-btns .btn.pramy{
+  background:linear-gradient(-90deg,rgba(82,122,254,1),rgba(67,162,254,1));
+  color: #fff;
+}
+

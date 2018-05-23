@@ -1,0 +1,424 @@
+@import '../../../components/bqPages/index.wxss';
+
+.status {
+  position: relative;
+  padding: 38rpx 60rpx;
+  color: #fff;
+  background: linear-gradient(-135.3deg, rgba(82, 122, 254, 1), rgba(67, 162, 254, 1));
+}
+
+.offer-status {
+  padding: 20rpx 30rpx;
+}
+
+.offer-status .status {
+  background: linear-gradient(-90deg, rgba(255, 226, 89, 1), rgba(255, 167, 81, 1));
+  box-shadow: 0px 2px 4px 0px rgba(212, 152, 36, 1);
+}
+
+.status-text {
+  font-size: 34rpx;
+  margin-bottom: 10rpx;
+}
+
+.status-sub-text {
+  font-size: 24rpx;
+}
+
+.offer-success-icon {
+  position: absolute;
+  top: 18rpx;
+  right: 76rpx;
+  width: 79rpx;
+  height: 138rpx;
+}
+
+.detail-info {
+  position: relative;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.detail-info .extra-option::before {
+  right: 40rpx;
+}
+
+.detail-wrap .item-time {
+  position: relative;
+  text-align: right;
+}
+
+.detail-wrap .item-time.company {
+  text-align: left;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.detail-wrap .item-time.company .makeCall {
+  float: right;
+  color: #1875f0;
+  font-size: 40rpx;
+}
+
+.info-title, .detail-section .section-title {
+  position: relative;
+  height: 110rpx;
+  line-height: 110rpx;
+  font-size: 34rpx;
+  padding: 0 30rpx;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10rpx;
+}
+
+.status2-section {
+  margin-top: 40rpx;
+}
+.status-section{
+  padding-bottom: 40rpx;
+}
+.status2-section.detail-section{
+  margin-top: 40rpx;
+}
+.status2-title {
+  padding: 0 30rpx;
+  margin-bottom: 20rpx;
+  margin-top: 40rpx;
+}
+
+.info-title .iconfont {
+  position: absolute;
+  right: 30rpx;
+  top: 0rpx;
+  color: #c3c3c3;
+  padding: 0 20rpx;
+  text-align: right;
+}
+
+.detail-info-cell {
+  font-size: 30rpx;
+  color: #999;
+}
+
+.detail-info-cell .info-cell-content {
+  color: #333;
+}
+
+.detail-info-cell {
+  position: relative;
+  padding-left: 30%;
+  padding-right: 30rpx;
+  line-height: 88rpx;
+}
+
+.detail-info-cell .info-cell-title {
+  position: absolute;
+  width: 30%;
+  left: 0;
+  top: 0;
+  text-indent: 1em;
+}
+
+.detail-section {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.detail-section .section-content {
+  padding: 30rpx;
+}
+
+.bidBtn {
+  position: absolute;
+  bottom: -62rpx;
+  right: 40rpx;
+  width: 180rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 28rpx;
+}
+
+.base-info {
+  position: relative;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.base-info-header {
+  position: relative;
+  padding-right: 80rpx;
+}
+
+.base-info-header .call {
+  position: absolute;
+  right: 0;
+  top: 10rpx;
+  color: #1875f0;
+  font-size: 56rpx;
+}
+
+.base-info-header .company {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.base-info-info {
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.base-info-info .store {
+  color: #666;
+}
+
+.base-info-body {
+  margin: 30rpx 0 15rpx;
+  background: #f4f5f5;
+  padding: 16rpx 20rpx;
+}
+
+.base-info-body .price {
+  color: #333;
+  font-size: 34rpx;
+}
+.base-info-body input[disabled]{
+  border-color: #666;
+  background: #999;
+}
+.base-info-body .price.red {
+  color: #f13a30;
+}
+
+.base-info-body .base-info-detail {
+  color: #666;
+}
+.base-info-body .base-info-detail .line{
+  display: inline-block;
+  padding: 0 10rpx;
+}
+.detail-data.noData {
+  padding-top: 20rpx;
+}
+
+.store, .proInfo {
+  display: inline-block;
+  margin-right: 10rpx;
+}
+
+.store image, .proInfo image {
+  vertical-align: -3px;
+  margin-right: 5rpx;
+}
+
+.box-item, .offer-main-content {
+  border-radius: 8rpx;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.offer-main {
+  padding-top: 50rpx;
+}
+
+.offer-main .offer-main-title {
+  position: relative;
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.history-btn {
+  position: absolute;
+  right: 0;
+  top: 5rpx;
+  font-size: 28rpx;
+  color: #1875f0;
+}
+
+.offer-main-content {
+  background-color: #fff;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.offer-cell {
+  position: relative;
+  padding-left: 20%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.offer-cell.price {
+  text-align: right;
+  padding-right: 30rpx;
+}
+
+.offer-cell .offer-cell-title {
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+  width: 20%;
+  text-indent: 1em;
+}
+
+.offer-cell .offer-cell-main {
+  color: #333;
+  text-align: right;
+  padding-right: 30rpx;
+}
+
+/* .offer-cell:last-child .offer-cell-main{
+  text-align: left;
+} */
+
+.modify-price {
+  display: inline-block;
+  width: 240rpx;
+}
+
+.offer-price-cell {
+  position: relative;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  color: #666;
+  padding-left: 160rpx;
+}
+
+.offer-price-wrap {
+  display: flex;
+}
+
+.offer-price-wrap .offer-price-cell {
+  flex: 1;
+  padding-left: 100rpx;
+  width: 330rpx;
+}
+
+.offer-price-wrap .offer-price-cell.tolerance {
+  margin-right: 15rpx;
+}
+
+.offer-price-wrap .offer-price-cell.place {
+  padding-left: 0rpx;
+  border: none;
+}
+
+.offer-price-wrap .offer-price-cell .label {
+  width: 100rpx;
+}
+
+.offer-price-cell .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160rpx;
+  text-align: left;
+  height: 88rpx;
+  line-height: 88rpx;
+  padding-left: 20rpx;
+}
+
+.offer-price-cell .price {
+  display: inline-block;
+  width: 400rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.offer-price-cell.unit-cell::after {
+  position: absolute;
+  content: '';
+  top: 40rpx;
+  right: 10rpx;
+  width: 0;
+  height: 0;
+  border-width: 10rpx;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.3) transparent transparent transparent;
+}
+
+.offer-price-cell .tolerance {
+  display: inline-block;
+  width: 280rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.offer-price-cell .unit {
+  position: absolute;
+  right: 80rpx;
+  top: 0;
+  width: 60rpx;
+  text-align: center;
+  background-color: rgba(248, 248, 248, 0.8);
+  border-left: 1px solid rgba(221, 221, 221, 0.8);
+}
+
+.offer-price-cell.unit-cell picker {
+  position: absolute !important;
+  right: 0rpx !important;
+  top: 0 !important;
+  width: 80rpx !important;
+  height: 88rpx !important;
+  line-height: 88rpx !important;
+  background-color: rgba(248, 248, 248, 0.8) !important;
+}
+
+.offer-price-cell.unit-cell picker .picker {
+  text-align: left;
+}
+
+.picker {
+  text-align: right;
+  padding-right: 20rpx;
+}
+
+.picker-warp {
+  background-color: #fff;
+}
+
+.txtArea {
+  background-color: #fff;
+  border-radius: 4rpx;
+  height: 180rpx;
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 15rpx;
+  margin-bottom: 30rpx;
+}
+
+.no-plan {
+  text-align: center;
+  font-size: 32rpx;
+  color: #1875f0;
+  margin-top: 60rpx;
+}
+
+.modifyBtns {
+  display: flex;
+}
+
+.modifyBtns .modifyBtn {
+  flex: 1;
+}
+
+.modifyBtns .modifyBtn:first-child {
+  margin-right: 15rpx;
+}
+
+.modifyBtns .modifyBtn:last-child {
+  margin-left: 15rpx;
+}
+.ignorePrice{
+  text-align: center;
+  padding-top: 60rpx;
+  font-size: 28rpx;
+  color: #1875f0;
+}

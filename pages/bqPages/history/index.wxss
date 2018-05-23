@@ -1,0 +1,48 @@
+.history-wrap{
+  padding: 20rpx 30rpx;
+}
+.history-item{
+  position: relative;
+  padding: 30rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+  border-radius: 8rpx; 
+}
+.history-item.first{
+  background:linear-gradient(-90deg,rgba(82,122,254,1),rgba(67,162,254,1));
+  box-shadow: none;
+}
+.history-item.first .top,.history-item.first .center,.history-item.first .bottom,.history-item.first .top .time{
+  color: #fff;
+}
+.history-item.first .top .price{
+  font-size: 48rpx;
+}
+.history-item .top{
+  position: relative;
+  font-size: 32rpx;
+  color: #333;
+}
+.history-item .top .time{
+  float: right;
+  font-size: 22rpx;
+  color: #666;
+}
+.history-item .center{
+  font-size: 26rpx;
+  color: #666;
+  margin: 16rpx 0;
+}
+.history-item .bottom{
+  font-size: 24rpx;
+  color: #999;
+}
+.current-price{
+  font-size: 26rpx;
+  margin-bottom: 40rpx;
+}
+.history-item .center .split{
+  color: #ccc;
+  margin: 0 10rpx;
+}

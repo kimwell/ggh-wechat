@@ -1,0 +1,37 @@
+<view class="modify">
+  <view class='offer-main'>
+    <view class='offer-price-cell unit-cell'>
+      <text class='label'>单价</text>
+      <input type='digit' placeholder='请输入单价' value="{{priceData.price}}" bindinput='priceHandle' class='price'></input>
+      <view class='unit'>元/{{ priceData.baseUnit }}</view>
+    </view>
+    <view class='offer-price-wrap'>
+      <view class='offer-price-cell tolerance' wx:if="{{ironType == '不锈钢板' || ironType == '不锈钢卷'}}">
+        <text class='label'>公差</text>
+        <input type='text' value='{{priceData.tolerance}}' disabled="{{ ironType != '不锈钢板' && ironType != '不锈钢卷' }}" bindinput='toleranceHandle' placeholder='请输入公差' class='price'></input>
+      </view>
+      <view class='offer-price-cell place'>
+        <ajaxPicker api="findProPlaces" title="产地" old="{{priceData.proPlace}}" bindonpick="proPlacesOnpick"></ajaxPicker>
+      </view>
+    </view>
+    <view class='offer-price-cell'>
+      <text class='label'>交货日期</text>
+      <picker mode="date" class='time' value="{{priceData.deliveryTime}}" start="{{today}}" end="2099-12-31" bindchange="changeDate">
+        <view class="picker">
+          {{deliveryTime != ''? deliveryTime :'请选择'}}
+        </view>
+      </picker>
+    </view>
+    <view class='offer-price-wrap'>
+      <textarea maxlength='35' wx:if="{{textareaHide}}" value="{{priceData.remark}}" placeholder='请输入备注，最多35个字' class='txtArea' bindinput="markHandle" placeholder-style="font-size:32rpx;color:#999;"></textarea>
+    </view>
+    <view class='modifyBtns'>
+      <view class='modifyBtn'>
+        <button type='default' style='border:1px solid #ddd;color: #999;' bindtap='cancelPrice'>取消</button>
+      </view>
+      <view class='modifyBtn'>
+        <button type='primary' bindtap='savePrice'>确认修改</button>
+      </view>
+    </view>
+  </view>
+</view>

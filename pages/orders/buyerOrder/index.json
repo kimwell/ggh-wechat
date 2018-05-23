@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "买家订单管理",
+  "usingComponents": {
+    "orderTemp": "/components/orderTemp/index"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

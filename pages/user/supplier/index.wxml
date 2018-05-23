@@ -1,0 +1,88 @@
+<view class="filter-wrap">
+  <view class='filter-header'>
+    <text class='iconfont icon-i-search icon-search'></text>
+    <input type='text' bindinput='nameHandle' class='search-txt' value='{{pageApi.sellCompanyName}}' placeholder-class='placeHolder' placeholder='买家公司名称模糊查询' confirm-type="search" bindconfirm="searchConfirm"></input>
+  </view>
+  <view class="filter-column {{barStatus !=''?'hover':''}}">
+    <view wx:for="{{filterBar}}" wx:for-index="idx" wx:key="idx" class="filter-cell {{sellSort === 1 && idx == 0 ? 'up':'down'}} {{idx === 1 ? 'center':''}} {{idx === 0 ? 'first':''}} {{idx === barStatus?'current':''}}" data-idx="{{idx}}" bindtap='switchBar'>
+      <text class='filter-text'>{{item.name}}</text>
+    </view>
+    <view class='filter-footer' wx:if="{{barStatus !=''}}">
+      <view class='filter-footer-item' wx:if="{{barStatus === 1}}">
+        <view class='filter-item-cell'>
+          <view class='cell'>{{filterFirst.name}}</view>
+          <view class='cell'>
+            <text wx:for="{{filterFirst.list}}" wx:for-index="idx" class="cell-text {{idx === firstTime ? 'active':''}}" wx:for-item="sub" wx:key="{{sub.id}}" data-idx="{{idx}}" data-val="{{sub.id}}" bindtap='switchFirstSort'>{{sub.name}}</text>
+          </view>
+        </view>
+        <view class='filter-item-cell'>
+          <view class='cell'>{{filterLast.name}}</view>
+          <view class='cell'>
+            <text wx:for="{{filterLast.list}}" wx:for-index="idx" class="cell-text {{idx === lastTime ? 'active':''}}" wx:for-item="sub" wx:key="{{sub.id}}" data-idx="{{idx}}" data-val="{{sub.id}}" bindtap='switchLastSort'>{{sub.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='filter-footer-item' wx:if="{{barStatus === 2}}">
+        <view class='filter-item-cell'>
+          <view class='cell'>{{filterNum.name}}</view>
+          <view class='cell'>
+            <text wx:for="{{filterNum.list}}" wx:for-index="idx" class="cell-text {{idx === orderNum ? 'active':''}}" wx:for-item="sub" wx:key="{{sub.id}}" data-idx="{{idx}}" data-val="{{sub.id}}" bindtap='switchNumSort'>{{sub.name}}</text>
+          </view>
+        </view>
+        <view class='filter-item-cell'>
+          <view class='cell'>{{filterRate.name}}</view>
+          <view class='cell'>
+            <text wx:for="{{filterRate.list}}" wx:for-index="idx" class="cell-text {{idx === orderRate ? 'active':''}}" wx:for-item="sub" wx:key="{{sub.id}}" data-idx="{{idx}}" data-val="{{sub.id}}" bindtap='switchRateSort'>{{sub.name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='wrapper'>
+  <view class='item-wrapper'>
+    <view class='item' wx:for="{{list}}" wx:key="index">
+      <view class='item-header'>
+        <view class='item-header-main'>
+          <view class='company'>{{item.sellCompanyName}}</view>
+          <view>
+            <grade level="{{item.marginLevel}}"></grade>
+            <text class='name'>{{item.saleName}}</text>
+            <text class='mobile' data-tel="{{item.saleMobile}}" bindtap='makeCall'>{{item.saleMobile}}</text>
+          </view>
+        </view>
+        <view class='item-header-extra'>
+          <view class='extra-cell'>
+            <view class='num'>{{item.storeOrderGet}}</view>
+            <view class='name'>订单完成量</view>
+          </view>
+          <view class='extra-cell'>
+            <view class='num'>{{item.orderRate}}%</view>
+            <view class='name'>订单完成率</view>
+          </view>
+        </view>
+      </view>
+      <view class='item-bottom'>
+        <view class='item-bottom-cell'>
+          <view>报价成功次数</view>
+          <view class='nums'>{{item.ironBuyGet}}</view>
+        </view>
+        <view class='item-bottom-cell'>
+          <view>最近成交时间</view>
+          <view class='nums'>{{item.newTime}}</view>
+        </view>
+        <view class='item-bottom-cell'>
+          <view>首次成交时间</view>
+          <view class='nums'>{{item.firstTime}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='noData' wx:if="{{list == 0 && !hasMore}}">
+      <view>
+        <image src='../../../static/images/nodata.png'></image>
+      </view>
+      <text>暂无数据</text>
+    </view>
+  </view>
+</view>
+<view class='filter-mask' hidden="{{showMask}}" bindtap='closeMask'></view>

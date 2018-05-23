@@ -1,0 +1,4 @@
+<view class="grade {{className}}">
+  <image wx:if="{{className !=''}}" src="../../static/images/{{className}}.png"></image>
+</view>
+<text wx:if="{{empty}}"><text wx:if="{{level == ''}}">暂无</text></text>

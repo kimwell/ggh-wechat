@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+    "usingComponents": {
+      "grade": "../../../components/grade/index",
+      "countDown": "../../../components/countDown/index",
+      "ajaxPicker": "../../../components/ajaxPicker/index"
+    }
+}

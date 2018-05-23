@@ -1,0 +1,15 @@
+<view class="discount">
+  <view class='discount-textarea'>
+    <textarea placeholder='请输入您想发布的优惠' value='{{tag}}' bindblur='areaBlur' maxlength="35" bindinput="bindArea" placeholder-class="placeholder"></textarea>
+    <text class='font-count'>{{fontLen}}/35</text>
+  </view>
+  <view class='discount-hot'>
+    <view class='hot-title'>推荐字段</view>
+    <view>
+      <text class='tag' wx:for="{{hotList}}" wx:for-index="idx" wx:key="idx" data-id="{{idx}}" bindtap='tagHandle'>{{item.info}}</text>
+    </view>
+  </view>
+  <view class='pb-btn'>
+    <button type='primary' class='login' bindtap='pbBtn'>保存</button>
+  </view>
+</view>

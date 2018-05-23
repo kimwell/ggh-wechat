@@ -1,0 +1,22 @@
+<!--components/orderTemp/cancelTip/index.wxml-->
+<view class='cancel-tip-container' wx:if="{{ selfShow }}">
+  <view class='panel'>
+    <view class='title'>取消订单</view>
+    <view class='tip'>请选择您取消该订单的原因，无理由取消订单可能会影响您的平台使用信誉。</view>
+
+    <view class='resons'>
+      <view class='group' wx:for="{{ resons }}" wx:key bindtap='pick' data-i="{{ index }}">
+        <text class='check iconfont {{ active == index ? "icon-radioon" : "icon-radio02"}}'></text>
+        {{ item }}
+      </view>
+      <view class='group' wx:if="{{ resout == '其他' }}">
+        <textarea class='text' value="{{ other }}" bindinput='asyncOther' placeholder='请填写其他要求' maxlength="35"></textarea>
+      </view>
+    </view>
+
+    <view class='btns'>
+      <view class='btn br' bindtap='hide'>取消</view>
+      <view class='btn parmy' bindtap='sure'>确定</view>
+    </view>
+  </view>
+</view>

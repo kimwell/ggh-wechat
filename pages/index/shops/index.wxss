@@ -1,0 +1,60 @@
+/* pages/index/shops/index.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.switch-tab {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+}
+
+.switch-tab .item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  /* border-bottom: 4rpx solid;
+  border-image: -webkit-linear-gradient(#fff, #fff) 30 30;
+  border-image: -moz-linear-gradient(#fff, #fff) 30 30;
+  border-image: linear-gradient(#fff, #fff) 30 30; */
+}
+
+/* .switch-tab .item.active{
+  color: #1875F0;
+  border-image: -webkit-linear-gradient(#527AFE, #43A2FE) 30 30;
+  border-image: -moz-linear-gradient(#527AFE, #43A2FE) 30 30;
+  border-image: linear-gradient(#527AFE, #43A2FE) 30 30;
+} */
+.switch-tab .item.active::after{
+  position: absolute;
+  content: '';
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 4rpx;
+  background: linear-gradient(-135.3deg, rgba(82, 122, 254, 1), rgba(67, 162, 254, 1));
+}
+.shop-ads{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 110rpx 30rpx;
+}
+
+.shop-ads .item{
+  width: 100%;
+  height: 192rpx;
+  margin-top: 30rpx;
+}
+
+.shop-ads .item .shop-img{
+  width: 100%;
+  height: 100%;
+}

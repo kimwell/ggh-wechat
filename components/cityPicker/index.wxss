@@ -1,0 +1,181 @@
+/* components/cityPicker/index.wxss */
+
+.picker-warp {
+  position: relative;
+  width: 100%;
+  height: 96rpx;
+  line-height: 48rpx;
+  background-color: #fafafa;
+  border: 1rpx solid #ddd;
+  padding: 24rpx 20rpx;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: #333;
+  border-radius: 4rpx;
+}
+
+.picker-warp.simple {
+  border: none;
+  height: 60rpx;
+  background-color: transparent;
+  padding: 0 20rpx;
+}
+
+.picker-warp.simple .value ,.picker-warp.simple .placeholder ,.picker-warp.simple .label{
+  padding-right: 100rpx;
+}
+
+.picker-warp .label {
+  position: absolute;
+  color: #666;
+  left: 20rpx;
+}
+
+.picker-warp .placeholder {
+  position: absolute;
+  right: 20rpx;
+  color: #999;
+}
+
+.picker-warp .value {
+  display: block;
+  right: 20rpx;
+  width: 100%;
+  padding-left: 100rpx;
+  box-sizing: border-box;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mask-cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.mask-cover .mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  filter: alpha(opacity=60);
+  opacity: 0.6;
+}
+
+.zd {
+  z-index: 200000;
+}
+
+.picker-mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.6;
+}
+
+.picker-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 600rpx;
+  background-color: #fff;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab {
+  display: inline-block;
+  margin-left: 20rpx;
+}
+
+.tab text {
+  color: #666;
+  font-size: 30rpx;
+  margin-right: 64rpx;
+}
+
+.tab text.active {
+  position: relative;
+  color: #3389ff;
+}
+
+.tab text.active::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4rpx;
+  background-color: #3389ff;
+  border-radius: 30rpx;
+  bottom: -30rpx;
+  left: 0;
+}
+
+.close {
+  position: absolute;
+  right: 20rpx;
+  color: #3389ff;
+  font-size: 30rpx;
+}
+
+.pick-items {
+  width: 100%;
+  height: 499rpx;
+  font-size: 28rpx;
+  color: #333;
+  white-space: nowrap;
+}
+
+.pick-item {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40rpx 20rpx 10rpx;
+  transition: all 0.2s;
+  vertical-align: top;
+}
+
+.show-0 .pick-item {
+  left: 0;
+}
+
+.show-1 .pick-item {
+  left: -100%;
+}
+
+.show-2 .pick-item {
+  left: -200%;
+}
+
+.item-list {
+  width: 100%;
+  height: 100%;
+}
+
+.item-list .item {
+  height: 76rpx;
+}
+
+.item-list .item.active {
+  color: #3389ff;
+}

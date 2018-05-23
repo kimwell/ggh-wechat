@@ -1,0 +1,8 @@
+<commonPage types="1" navData="{{navData}}" DataApi="queryBuyerPage" isRole="{{isNormal}}" filterApi="{{filterData}}" pull="{{pull}}" uuid="{{uuid}}">
+  <view wx:if="{{isNormal  != 'vip' && isNormal != 'admin'}}" class='role-tag'>
+    <view wx:if="{{isNormal === 'normal' || isNormal === ''}}">
+      <view bindtap='goAuth' class='auth' wx:if="{{isNormal === 'normal'}}">前往认证</view>
+      <view wx:else>权限不足</view>
+    </view>
+  </view>
+</commonPage>

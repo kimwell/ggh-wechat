@@ -1,0 +1,19 @@
+<!--components/ajaxPicker/index.wxml-->
+<view class="picker-warp {{className ? 'special':''}}" bindtap='togglePicker'>
+  <text class='label'>{{ title }}</text>
+  <text class='placeholder' wx-if="{{ multi ? multiValue == '' : active == null }}">请选择</text>
+  <text class='value' wx-if="{{  multi ? multiValue != '' : active != null }}">{{ multi ?  multiValue : list[active].name }}</text>
+</view>
+
+<view class='mask-cover' wx:if="{{ show }}">
+  <view class='mask' bindtap='close'></view>
+  <view class='pick-items'>
+    <view class='title'>
+      <text class='su'></text> {{ title }}{{ multi ? '（多选）' : '' }}
+      <text class='ok-btn' bindtap='pickOk' wx:if="{{ multi }}">确定</text>
+    </view>
+    <view class='item-content'>
+      <view class="picker-item {{ multi ? item.selected ? 'active' : '' : active == index ? 'active' : '' }}" wx:for="{{ list }}" wx:key bindtap='picke' data-index="{{ index }}">{{ item.name }}</view>
+    </view>
+  </view>
+</view>

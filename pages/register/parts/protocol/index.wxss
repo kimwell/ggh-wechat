@@ -1,0 +1,16 @@
+page{
+  font-size: 26rpx;
+  color: #333;
+}
+.protocol-body{
+  padding: 30rpx;
+}
+.protocol-body .title,.sub-title{
+  text-align: center;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+.sub-title{
+  margin-top: 20rpx;
+  text-align: left;
+}

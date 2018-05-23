@@ -1,0 +1,72 @@
+@import '/static/css/fonts/fonts.wxss';
+
+page{
+  background-color: #F4F5F5;
+}
+
+.container {
+  width: 100%;
+}
+
+/* 改写button 默认样式 */
+
+button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 34rpx;
+  background-color: transparent;
+  border: 1px solid #43a2fe;
+  border-radius: 44rpx !important;
+  color: #1875f0;
+  margin: 0 !important;
+}
+
+button::after {
+  display: none;
+}
+
+button[type="primary"] {
+  border: 0;
+  color: #fff;
+  background: linear-gradient(-135deg, rgba(82, 122, 254, 1), rgba(67, 162, 254, 1));
+}
+.flxbox{
+  display: flex;
+}
+
+.flx{
+  flex: 1;
+}
+
+/** 添加自定义button点击态样式类**/
+.button-hover {
+  background-color: #fff;
+  color: #fff;
+} 
+
+
+.bxb{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
+.goast-form{
+  display: inline-block;
+}
+
+.goast-form button{
+  display: inline-block;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+  height: auto;
+  color:inherit;
+  font-size: inherit;
+  border-radius: 0;
+}

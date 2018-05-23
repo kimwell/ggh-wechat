@@ -1,0 +1,167 @@
+/* components/orderTemp/salesmanSome/index.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.compny-list {
+  width: 100%;
+}
+
+.compny-list .item {
+  position: absolute;
+  width: 100%;
+  height: 153rpx;
+  box-sizing: border-box;
+  padding-left: 124rpx;
+}
+
+.compny-list .item .iconfont {
+  position: absolute;
+  font-size: 50rpx;
+  left: 40rpx;
+  top: 54rpx;
+}
+
+.icon-BAI-fuxuankuangs {
+  color: #1875f0;
+}
+
+.icon-BAI-fuxuankuang {
+  color: #bdbdbd;
+}
+
+.item .inner-box {
+  width: 100%;
+  height: 100%;
+  border-bottom: 1rpx solid #ddd;
+  box-sizing: border-box;
+  padding: 30rpx 0;
+}
+
+.compony-name {
+  color: #333;
+  font-size: 32rpx;
+  line-height: 44rpx;
+}
+
+.ren {
+  color: #666;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-top: 8rpx;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #ddd;
+}
+
+.bottom-bar .item {
+  position: relative;
+  height: 100%;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 32rpx;
+}
+
+.bottom-bar .item .sale, .bottom-bar .item .mobile {
+  width: 100%;
+  line-height: 40rpx;
+  color: #1875f0;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 8rpx;
+}
+
+.bottom-bar .item .iconfont {
+  position: absolute;
+  font-size: 50rpx;
+  left: 15rpx;
+}
+
+.item1 {
+  width: 210rpx;
+  text-indent: 10rpx;
+}
+
+.item2 {
+  width: 300rpx;
+  border-left: 1rpx solid #ddd;
+  border-right: 1rpx solid #ddd;
+  background: rgba(243, 248, 254, 1);
+  color: #1875f0;
+}
+
+.item3 {
+  width: 240rpx;
+  background: linear-gradient(-90deg, rgba(82, 122, 254, 0.5), rgba(67, 162, 254, 0.5));
+  color: #fff;
+}
+
+.selecter {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  height: 100%;
+}
+
+.selecter .inner {
+  position: fixed;
+  width: 100%;
+  height: 750rpx;
+  z-index: 1000;
+  background-color: #fff;
+  left: 0;
+  bottom: 0;
+}
+
+.selecter .inner .header {
+  width: 100%;
+  height: 104rpx;
+  border-bottom: 1rpx solid #ddd;
+  line-height: 104rpx;
+  padding: 0 30rpx;
+  color: #333;
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+
+.header .close {
+  float: right;
+  color: #1875f0;
+}
+
+.selecter .inner .content {
+  width: 100%;
+  height: 635rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.content .item {
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.content .item:last-child {
+  border: 0;
+}
+
+.content .item .tel {
+  float: right;
+}

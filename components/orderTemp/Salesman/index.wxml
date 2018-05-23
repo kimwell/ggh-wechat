@@ -1,0 +1,17 @@
+<!--components/orderTemp/Salesman/index.wxml-->
+<view class='buy-compny' wx:if="{{ isFirst }}">{{ buyCompny }}</view>
+<view class='order'>
+  <view class='value'>订单编号：{{ storeOrderId }}</view>
+  <view class='tip' wx:if="{{ !isFirst }}">换绑业务员仅针对当前订单生效，不影响原业务员负责的其它订单。</view>
+</view>
+
+<view class='title' wx:if="{{ !isFirst }}">当前业务员</view>
+<view class='sale-name'  wx:if="{{ !isFirst }}">{{ saleMan }}    {{ saleMobile }}</view>
+
+
+<view class='title'>分配业务员</view>
+<view class='salemans'>
+  <view class='saleman-item' wx:for="{{ list }}" wx:key bindtap='pick' data-item="{{ item }}">
+    {{ item.saleName }}    {{ item.saleMobile }}
+  </view>
+</view>

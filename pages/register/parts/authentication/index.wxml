@@ -1,0 +1,248 @@
+<view class="auth-wrapper">
+  <view class='auth-step flxbox'>
+    <view wx:for="{{steps}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" class="step-item flx {{step >= idx+1? 'active':''}}">
+      <text>{{item.id}}</text>
+      <view class='label'>{{item.label}}</view>
+    </view>
+  </view>
+  <view class='steps'>
+    <!--step1  -->
+    <view class='step step1' wx:if="{{step === 1}}">
+      <view class='step-form'>
+        <view class="step-section">
+          <view class='label'>
+            <text>*</text>公司名称</view>
+          <view class='main'>
+            <input value='{{userData.companyName}}' placeholder-class="placeholder" bindinput="bindName" placeholder='请与营业执照上名称一致' type="text"></input>
+          </view>
+        </view>
+        <view class="step-section">
+          <view class='label'>
+            <text>*</text>注册资金</view>
+          <view class='main'>
+            <input class='short' value='{{userData.regMoney}}' placeholder-class="placeholder" bindinput='bindMoney' type='number' placeholder='请输入注册资金'></input>
+            <text class='moneyUnit'>万元</text>
+          </view>
+        </view>
+      </view>
+      <view class='step-btn'>
+        <button bindtap='stepNext' data-step="2" type="primary">下一步</button>
+      </view>
+    </view>
+    <!--step2  -->
+    <view class='step step2' wx:if="{{step === 2}}">
+      <view class='step-form'>
+        <view class="step-section">
+          <view class='label'>
+            <text>*</text>联系人</view>
+          <view class='main'>
+            <input value='{{userData.contact}}' placeholder-class="placeholder" bindinput="bindContact" placeholder='请输入联系人' type="text"></input>
+          </view>
+        </view>
+        <view class="step-section">
+          <view class='label'>
+            <text>*</text>联系电话</view>
+          <view class='main'>
+            <input value='{{userData.contactNum}}' placeholder-class="placeholder" bindinput='bindContactNum' type='number' placeholder='请输入联系电话'></input>
+          </view>
+        </view>
+        <view class="step-section">
+          <view class='label'>QQ</view>
+          <view class='main'>
+            <input value='{{userData.qq}}' placeholder-class="placeholder" bindinput='bindQq' type='number' placeholder='请输入QQ'></input>
+          </view>
+        </view>
+        <view class="step-section">
+          <view class='label'>传真电话</view>
+          <view class='main'>
+            <input value='{{userData.fax}}' placeholder-class="placeholder" bindinput='bindFax' type='number' placeholder='请输入传真电话'></input>
+          </view>
+        </view>
+        <view class="step-section">
+          <view class='label'>
+            <text>*</text>办公地址</view>
+          <view class='main arrow'>
+            <cityPicker className bindonpick="cityOnpick" old="{{userData.cityName}}" level="2"></cityPicker>
+          </view>
+        </view>
+        <view class="step-section">
+          <view class='main'>
+            <input value='{{userData.address}}' placeholder-class="placeholder" bindinput='bindAddress' type='text' placeholder='请输入街道 办公楼 门牌号等'></input>
+          </view>
+        </view>
+        <view class="step-section">
+          <view class='label'>绑定专员</view>
+          <view class='main arrow'>
+            <picker bindchange="changeSale" value="{{salesIndex}}" range-key="saleName" range="{{saleList}}">
+              <view class="picker">
+                <view wx:if="{{userData.saleName !=''}}">
+                  <text class='saleText'>{{userData.saleName}}</text>
+                  <text>{{userData.saleMobile}}</text>
+                </view>
+                <view wx:else class='selected'>请选择</view>
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class='step-form step-form-other'>
+        <view class='step-sections'>
+          <view class='step-section-title'>店铺简介</view>
+          <view class='step-section-main'>
+            <input value='{{userData.sellerProfile}}' bindinput='bindPro' placeholder='店铺简介'></input>
+          </view>
+        </view>
+        <view class='step-sections'>
+          <view class='step-section-title'>店铺封面</view>
+          <view class='step-section-main'>
+            <view class='upload-main' data-type="1" bindtap='selectPic'>
+              <view wx:if="{{userData.cover != ''}}" class='showimg'>
+                <view class='cover'></view>
+                <text class='cover-desc'>重新上传</text>
+                <image src="{{userData.cover}}" mode="widthFix" style="width:100%;"></image>
+              </view>
+              <view wx:else class='upload-handle'>
+                <text class='iconfont icon-update'></text>
+                <view class='desc'>添加图片</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='step-btns'>
+        <view class='btns'>
+          <button bindtap='preStep' data-preStep="1" hover-class="none">上一步</button>
+        </view>
+        <view class='btns'>
+          <button bindtap='stepNexts' type="primary">下一步</button>
+        </view>
+      </view>
+    </view>
+    <!--step3  -->
+    <view class='step step3' wx:if="{{step === 3}}">
+      <view class='step-form'>
+        <view class="step-section">
+          <view class='label'>
+            <text>*</text>证件类型</view>
+          <view class='main arrow'>
+            <picker bindchange="changeCell" value="{{cellType}}" range="{{cellArr}}">
+              <view class="picker">
+                <view wx:if="{{cellName !=''}}" class='over'>
+                  <text class='saleText'>{{cellName}}</text>
+                </view>
+                <view wx:else class='selected'>请选择</view>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class='step-section' wx:if="{{cellType == 0}}">
+          <view class='label'>
+            <text>*</text>三证合一照</view>
+          <view class='main' style='padding-right:30rpx;'>
+            <view class='upload-main' data-type="2" bindtap='selectPic'>
+              <view wx:if="{{userData.allCer != ''}}" class='showimg'>
+                <view class='cover'></view>
+                <text class='cover-desc'>重新上传</text>
+                <image src="{{userData.allCer}}" mode="widthFix" style="width:100%;max-height:300rpx;"></image>
+              </view>
+              <view wx:else class='upload-handle small'>
+                <text class='iconfont icon-update'></text>
+                <view class='desc'>添加图片</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='step-section' wx:if="{{cellType == 1}}">
+          <view class='upload-cer'>
+            <view class='upload-cer-item'>
+              <view class='cer-title'>
+                <text>*</text>营业执照</view>
+              <view class='upload-main' data-type="3" bindtap='selectPic'>
+                <view wx:if="{{userData.bussinessLic != ''}}" class='showimg'>
+                  <view class='cover'></view>
+                  <text class='cover-desc'>重新上传</text>
+                  <image src="{{userData.bussinessLic}}" mode="" style="width:100%;max-width:280px;max-height:172rpx;"></image>
+                </view>
+                <view wx:else class='upload-handle small'>
+                  <text class='iconfont icon-update'></text>
+                  <view class='desc'>添加图片</view>
+                </view>
+              </view>
+            </view>
+            <view class='upload-cer-item'>
+              <view class='cer-title'>
+                <text>*</text>组织机构代码</view>
+              <view class='upload-main' data-type="4" bindtap='selectPic'>
+                <view wx:if="{{userData.codeLic != ''}}" class='showimg'>
+                  <view class='cover'></view>
+                  <text class='cover-desc'>重新上传</text>
+                  <image src="{{userData.codeLic}}" mode="" style="width:100%;max-width:280px;max-height:172rpx;"></image>
+                </view>
+                <view wx:else class='upload-handle small'>
+                  <text class='iconfont icon-update'></text>
+                  <view class='desc'>添加图片</view>
+                </view>
+              </view>
+            </view>
+            <view class='upload-cer-item'>
+              <view class='cer-title'>
+                <text>*</text>税务登记证</view>
+              <view class='upload-main' data-type="5" bindtap='selectPic'>
+                <view wx:if="{{userData.financeLic != ''}}" class='showimg'>
+                  <view class='cover'></view>
+                  <text class='cover-desc'>重新上传</text>
+                  <image src="{{userData.financeLic}}" mode="" style="max-width:280px;max-height:172rpx;"></image>
+                </view>
+                <view wx:else class='upload-handle small'>
+                  <text class='iconfont icon-update'></text>
+                  <view class='desc'>添加图片</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='step-btns'>
+        <view class='btns'>
+          <button bindtap='preStep' data-preStep="2" hover-class="none">上一步</button>
+        </view>
+        <view class='btns'>
+          <button bindtap='goStep4' type="primary">上传资料</button>
+        </view>
+      </view>
+    </view>
+    <!--step4  -->
+    <view class='step step4' wx:if="{{step === 4}}">
+      <view class='step-success'>
+        <view wx:if="{{pass == 2}}">
+          <image class='status1-img' src="../../../../static/images/auth-status1.png"></image>
+          <view class='status1-text status-text'>您的认证资料正在审核中…</view>
+          <view class='preview-files' bindtap='goDetail'>查看认证资料</view>
+        </view>
+        <view wx:if="{{pass == 1}}">
+          <image class='status3-img' src="../../../../static/images/auth-status3.png"></image>
+          <view class='status3-text status-text'>恭喜您，入驻成功！</view>
+          <view class='preview-files' bindtap='goDetail'>查看认证资料</view>
+        </view>
+        <view wx:if="{{pass == 3}}">
+          <image class='status3-img' src="../../../../static/images/auth-status2.png"></image>
+          <view class='status2-text status-text'>审核未通过</view>
+          <view class='preview-files' bindtap='goDetail'>查看认证资料</view>
+        </view>
+      </view>
+      <view class='warm' wx:if="{{pass == 2}}">
+        <view class='warm-title'>温馨提示：</view>
+        <view>1.申请商家认证业务需要1个工作日左右进行审核，请您耐心等待；</view>
+        <view>2.认证过程中您不可以完善或修改您的申请资料。</view>
+      </view>
+      <view class='warm' wx:if="{{pass == 3}}">
+        <view class='warm-title'>审核失败原因：</view>
+        <view>{{remark}}</view>
+      </view>
+      <view class='step-btn'>
+        <button bindtap='stepOk' data-step="2" type="primary" wx:if="{{pass != 3}}">完成</button>
+        <button bindtap='reCommit' data-step="2" type="primary" wx:if="{{pass == 3}}">重新填写</button>
+      </view>
+    </view>
+  </view>
+</view>

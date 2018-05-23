@@ -1,0 +1,410 @@
+<view class="{{types == 2 ? 'offer-status':''}}">
+  <view class="status">
+    <view wx:if="{{types == 1}}">
+      <view wx:if="{{objData.buyStatus == 0}}">
+        <view class='status-text'>待报价</view>
+        <view class='status-sub-text'>等待平台推送精选报价后，在“待确认”栏目中查看</view>
+      </view>
+      <view wx:if="{{objData.buyStatus == 1}}">
+        <view class='status-text'>待确认
+          <countDown endTime="{{objData.checkTime}}" nowTime="{{objData.serveTime}}"></countDown>
+        </view>
+        <view class='status-sub-text'>如有合适报价，请在剩余时间结束前选择卖家</view>
+      </view>
+      <view wx:if="{{objData.buyStatus == 2}}">
+        <view class='status-text'>已成交</view>
+      </view>
+      <view wx:if="{{objData.buyStatus == 3}}">
+        <view class='status-text'>已失效</view>
+      </view>
+    </view>
+    <view wx:if="{{types == 2}}">
+      <view wx:if="{{objData.offerStatus == 0}}">
+        <view class='status-text'>待报价
+          <countDown endTime="{{objData.sellTime}}" nowTime="{{objData.serveTime}}"></countDown>
+        </view>
+        <view class='status-sub-text'>快去报价吧！已有{{objData.sellNum}}家商户在和您竞争</view>
+      </view>
+      <view wx:if="{{objData.offerStatus == 1}}">
+        <view class='status-text'>已报价</view>
+        <view class='status-sub-text'>等待平台推送精选报价后，在“待确认”栏目中查看</view>
+      </view>
+      <view wx:if="{{objData.offerStatus == 2}}">
+        <image class='offer-success-icon' src='/static/images/offer-success.png'></image>
+        <view class='status-text'>已成交</view>
+        <view class='status-sub-text'>
+          <text>成交时间：{{list[0].time}}</text>
+        </view>
+      </view>
+      <view wx:if="{{objData.offerStatus == 3}}">
+        <view class='status-text'>未中标</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='detail-main'>
+    <view wx:if="{{types == 1}}">
+      <view wx:if="{{objData.buyStatus == 0}}" class='detail-info'>
+        <view class='extra-option' wx:if="{{objData.isShow}}">
+          <view class='option-item' catchtap='tapCopy' data-obj="{{objData}}">
+            <text class='iconfont icon-fuzhisvg'></text>
+            <text>复制</text>
+          </view>
+          <view class='option-item' catchtap='tapEdit' data-obj="{{objData}}" wx:if="{{objData.editStatus != 1}}">
+            <text class='iconfont icon-compile'></text>
+            <text>编辑</text>
+          </view>
+          <view class='option-item' catchtap='tapDel' data-obj="{{objData}}" wx:if="{{objData.buyStatus == 0}}">
+            <text class='iconfont icon-LC_icon_delete_line'></text>
+            <text>删除</text>
+          </view>
+        </view>
+        <!--end  -->
+        <view class='info-title'>求购详情
+          <text class='icon-gengduo iconfont' bindtap='showOption'></text>
+        </view>
+        <view class='detail-info-cell'>
+          <view class='info-cell-title'>发布时间</view>
+          <view class='info-cell-content'>{{objData.ctime}}</view>
+        </view>
+        <view class='detail-info-cell'>
+          <view class='info-cell-title'>品名</view>
+          <view class='info-cell-content'>{{objData.ironTypeName}}</view>
+        </view>
+        <view class='detail-info-cell'>
+          <view class='info-cell-title'>材质</view>
+          <view class='info-cell-content'>{{objData.materialName}}</view>
+        </view>
+        <view class='detail-info-cell'>
+          <view class='info-cell-title'>表面</view>
+          <view class='info-cell-content'>{{objData.surfaceName}}</view>
+        </view>
+        <view class='detail-info-cell'>
+          <view class='info-cell-title'>货源地</view>
+          <view class='info-cell-content'>{{objData.locationName}}</view>
+        </view>
+        <view class='detail-info-cell'>
+          <view class='info-cell-title'>规格</view>
+          <view class='info-cell-content'>{{objData.specifications != '' ? objData.specifications : objData.height +'*' + objData.width+ '*'+ objData.length}}</view>
+        </view>
+        <view class='detail-info-cell'>
+          <view class='info-cell-title'>公差</view>
+          <view class='info-cell-content'>{{objData.tolerance !=''?objData.tolerance:'-'}}</view>
+        </view>
+        <view class='detail-info-cell'>
+          <view class='info-cell-title'>产地</view>
+          <view class='info-cell-content'>{{objData.proPlacesName}}</view>
+        </view>
+        <view class='detail-info-cell'>
+          <view class='info-cell-title'>计量</view>
+          <view class='info-cell-content'>
+            <text>
+            <text wx:if="{{objData.weights != ''}}">{{objData.weights}}{{objData.weightUnit}}</text>
+            <text wx:if="{{objData.numbers != '' && objData.weights != ''}}">/</text>
+            <text wx:if="{{objData.numbers != ''}}">{{objData.numbers}}{{objData.numberUnit}}</text>
+            </text>
+          </view>
+        </view>
+        <view class='detail-info-cell'>
+          <view class='info-cell-title'>备注</view>
+          <view class='info-cell-content'>{{objData.remark != "" ? objData.remark : '暂无备注'}}</view>
+        </view>
+      </view>
+      <view wx:if="{{objData.buyStatus != 0}}" class='detail-wrap'>
+        <view class='list-item'>
+          <view class='item-wrap'>
+            <view class='extra-option' wx:if="{{objData.isShow}}">
+              <view class='option-item' catchtap='tapCopy' data-obj="{{objData}}">
+                <text class='iconfont icon-fuzhisvg'></text>
+                <text>复制</text>
+              </view>
+              <view class='option-item' catchtap='tapEdit' data-obj="{{objData}}" wx:if="{{objData.editStatus != 1}}">
+                <text class='iconfont icon-compile'></text>
+                <text>编辑</text>
+              </view>
+              <view class='option-item' catchtap='tapDel' data-obj="{{objData}}" wx:if="{{objData.buyStatus == 0}}">
+                <text class='iconfont icon-LC_icon_delete_line'></text>
+                <text>删除</text>
+              </view>
+            </view>
+            <view class='item-header'>
+              <text>{{objData.ironTypeName}}</text>
+              <text class='dot'></text>
+              <text>{{objData.materialName}}</text>
+              <text class='dot'></text>
+              <text>{{objData.surfaceName}}</text>
+              <text><text class='iconfont icon-location'>{{objData.locationName}}</text></text>
+              <text class='iconfont icon-gengduo options' catchtap='showOption' data-id="{{index}}"></text>
+            </view>
+            <view class='item-info'>
+              <text>{{objData.specifications != '' ? objData.specifications : objData.height +'*' + objData.width+ '*'+ objData.length}}</text>
+              <text class='split'></text>
+              <text>{{objData.tolerance !=''?objData.tolerance:'-'}}</text>
+              <text class='split'></text>
+              <text>
+                <text wx:if="{{objData.weights != ''}}">{{objData.weights}}{{objData.weightUnit}}</text>
+              <text wx:if="{{objData.numbers != '' && objData.weights != ''}}">/</text>
+              <text wx:if="{{objData.numbers != ''}}">{{objData.numbers}}{{objData.numberUnit}}</text>
+              </text>
+            </view>
+            <view class='item-place'>产地：{{objData.proPlacesName}}</view>
+            <view class='item-remark'>备注：{{objData.remark != '' ? objData.remark : '暂无'}}</view>
+            <view class='item-time'>
+              <text>发布时间：{{objData.ctime}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{objData.buyStatus == 1}}" class='status-section'>
+        <view class='status2-title'>报价列表</view>
+        <view class='status2-section detail-section' wx:for="{{list}}" wx:key="{{item.id}}">
+          <view class='section-content'>
+            <view class='base-info'>
+              <button type='primary' class="bidBtn" data-item="{{item}}" bindtap='bidBtn'>选他中标</button>
+              <view class='base-info-header'>
+                <text class='call iconfont icon-dianhua' data-tel="{{item.contactNum}}" bindtap='callTap'></text>
+                <view class='company' data-user="{{item.buserId}}" bindtap='goCompany'>{{item.companyName}}
+                  <grade level="{{item.marginLevel}}"></grade>
+                </view>
+                <view class='base-info-info'>
+                  <view class='store' wx:if="{{item.storeHouseName !=''}}">
+                    <image style="width: 28rpx; height: 28rpx;" src="/static/images/icon-store.png"></image>{{item.storeHouseName}}
+                  </view>
+                  <view class='proInfo' wx:if="{{item.proInfo !=''}}">
+                    <image style="width: 28rpx; height: 28rpx;" src="/static/images/icon-pre.png"></image>{{item.proInfo}}</view>
+                </view>
+              </view>
+              <view class='base-info-body'>
+                <view class="price">{{item.offerPerPrice}}元/{{item.baseUnit}}</view>
+                <view class='base-info-detail'>{{item.tolerance}}/{{item.offerPlaces}}/{{item.dtime}}交货</view>
+                <view>{{item.offerRemark != ''? item.offerRemark:'暂无备注'}}</view>
+              </view>
+              <view class='base-info-footer'>
+                {{item.ctime}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{list.length === 0}}" class='detail-data noData'>
+          <image src='/static/images/nodata.png'></image>
+          <view>平台商家暂时没有现货或没有开平计划</view>
+        </view>
+        <view bindtap='ignorePrice' data-apis="{{objData.bgStatus == 1  ? 'cancelIronBuy':'sureptlb'}}" class='ignorePrice'>无合适报价，放弃本单求购</view>
+      </view>
+      <view wx:if="{{objData.buyStatus == 2}}">
+        <view class='detail-section'>
+          <view class='section-title'>成交报价</view>
+          <view class='section-content'>
+            <view class='base-info'>
+              <view class='base-info-header'>
+                <text class='call iconfont icon-dianhua' data-tel="{{list[0].contactNum}}" bindtap='callTap'></text>
+                <view class='company' data-user="{{list[0].buserId}}" bindtap='goCompany'>{{list[0].companyName}}
+                  <grade level="{{list[0].marginLevel}}"></grade>
+                </view>
+                <view class='base-info-info'>
+                  <view class='store' wx:if="{{list[0].storeHouseName !=''}}">
+                    <image style="width: 28rpx; height: 28rpx;" src="/static/images/icon-store.png"></image>{{list[0].storeHouseName}}</view>
+                  <view class='proInfo' wx:if="{{list[0].proInfo !=''}}">
+                    <image style="width: 28rpx; height: 28rpx;" src="/static/images/icon-pre.png"></image>{{list[0].proInfo}}</view>
+                </view>
+              </view>
+              <view class='base-info-body'>
+                <view class="price {{list[0].offerStatus == 2? 'red':''}}">{{list[0].offerPerPrice}}元/{{list[0].baseUnit}}</view>
+                <view class='base-info-detail'>{{list[0].tolerance != '' ? list[0].tolerance: '-'}}
+                  <text class='line'>/</text>{{list[0].offerPlaces}}
+                  <text class='line'>/</text>{{list[0].dtime}}交货</view>
+                <view>{{list[0].offerRemark != ''?list[0].offerRemark:'暂无备注'}}</view>
+              </view>
+              <view class='base-info-footer'>
+                {{list[0].ctime}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='detail-section'>
+          <view class='section-title'>其他报价</view>
+          <view class='section-content'>
+            <view class='base-info' wx:for="{{oList}}" wx:key="{{item.id}}">
+              <view class='base-info-header'>
+                <text class='call iconfont icon-dianhua' data-tel="{{item.contactNum}}" bindtap='callTap'></text>
+                <view class='company' data-user="{{item.buserId}}" bindtap='goCompany'>{{item.companyName}}
+                  <grade level="{{item.marginLevel}}"></grade>
+                </view>
+                <view class='base-info-info'>
+                  <view class='store' wx:if="{{item.storeHouseName !=''}}">
+                    <image style="width: 28rpx; height: 28rpx;" src="/static/images/icon-store.png"></image>{{item.storeHouseName}}
+                  </view>
+                  <view class='proInfo' wx:if="{{item.proInfo !=''}}">
+                    <image style="width: 28rpx; height: 28rpx;" src="/static/images/icon-pre.png"></image>{{item.proInfo}}</view>
+                </view>
+              </view>
+              <view class='base-info-body'>
+                <view class="price">{{item.offerPerPrice}}元/{{item.baseUnit}}</view>
+                <view class='base-info-detail'>{{item.tolerance}}/{{item.offerPlaces}}/{{item.dtime}}交货</view>
+                <view>{{item.offerRemark != ''? item.offerRemark:'暂无备注'}}</view>
+              </view>
+              <view class='base-info-footer'>
+                {{item.ctime}}
+              </view>
+            </view>
+            <view wx:if="{{oList == 0}}" class='detail-data noData'>
+              <image src='/static/images/nodata.png'></image>
+              <view>暂无更多报价</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{objData.buyStatus == 3}}">
+        <view class='detail-section'>
+          <view class='section-title'>报价列表</view>
+          <view class='section-content'>
+            <view class='base-info' wx:for="{{list}}" wx:key="{{item.id}}">
+              <view class='base-info-header'>
+                <text class='call iconfont icon-dianhua' data-tel="{{item.contactNum}}" bindtap='callTap'></text>
+                <view class='company' data-user="{{item.buserId}}" bindtap='goCompany'>{{item.companyName}}
+                  <grade level="{{item.marginLevel}}"></grade>
+                </view>
+                <view class='base-info-info'>
+                  <view class='store' wx:if="{{item.storeHouseName !=''}}">
+                    <image style="width: 28rpx; height: 28rpx;" src="/static/images/icon-store.png"></image>{{item.storeHouseName}}
+                  </view>
+                  <view class='proInfo' wx:if="{{item.proInfo !=''}}">
+                    <image style="width: 28rpx; height: 28rpx;" src="/static/images/icon-pre.png"></image>{{item.proInfo}}</view>
+                </view>
+              </view>
+              <view class='base-info-body'>
+                <view class="price">{{item.offerPerPrice}}元/{{item.baseUnit}}</view>
+                <view class='base-info-detail'>{{item.tolerance !='' ? item.tolerance : '-'}}/{{item.offerPlaces}}/{{item.dtime}}交货</view>
+                <view>{{item.offerRemark != ''? item.offerRemark:'暂无备注'}}</view>
+              </view>
+              <view class='base-info-footer'>
+                {{item.ctime}}
+              </view>
+            </view>
+            <view wx:if="{{list == 0}}" class='detail-data noData'>
+              <image src='../../../static/images/nodata.png'></image>
+              <view>暂无更多报价</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{types == 2}}">
+      <view class='detail-wrap'>
+        <view class="list-item {{types == 2 ?'box-item':''}}">
+          <view class='item-wrap'>
+            <view class='item-header header-extra'>
+              <text>{{objData.ironTypeName}}</text>
+              <text class='dot'></text>
+              <text>{{objData.materialName}}</text>
+              <text class='dot'></text>
+              <text>{{objData.surfaceName}}</text>
+              <text><text class='iconfont icon-location'>{{objData.locationName}}</text></text>
+            </view>
+            <view class='item-info'>
+              <text>{{objData.specifications != '' ? objData.specifications : objData.height +'*' + objData.width+ '*'+ objData.length}}</text>
+              <text class='split'></text>
+              <text>{{objData.tolerance !=''?objData.tolerance:'-'}}</text>
+              <text class='split'></text>
+              <text>
+                <text wx:if="{{objData.weights != ''}}">{{objData.weights}}{{objData.weightUnit}}</text>
+              <text wx:if="{{objData.numbers != '' && objData.weights != ''}}">/</text>
+              <text wx:if="{{objData.numbers != ''}}">{{objData.numbers}}{{objData.numberUnit}}</text>
+              </text>
+            </view>
+            <view class='item-place'>产地：{{objData.proPlacesName}}</view>
+            <view class='item-remark'>备注：{{objData.remark != '' ? objData.remark : '暂无'}}</view>
+            <view class="item-time {{objData.offerStatus == 2 ? 'company':''}}">
+              <text wx:if="{{objData.offerStatus != 2}}">{{objData.ctime}}</text>
+              <view wx:if="{{objData.offerStatus == 2}}">
+                <text bindtap='callTap' data-tel="{{objData.contactNum}}" class='iconfont icon-dianhua makeCall'></text>
+                <text class='companyName' data-user="{{objData.user}}" bindtap='goCompany'>{{objData.companyName}}</text>
+                <grade level="{{objData.marginLevel}}"></grade>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='offer-main' wx:if="{{objData.offerStatus == 2 || objData.offerStatus == 3 || objData.offerStatus == 1 && !isEdit}}">
+        <view class='offer-main-title'>我的报价
+          <text data-iron="{{objData.ironTypeId}}" data-item="{{objData}}" bindtap='historyBtn' class='history-btn'>查看历史报价</text>
+        </view>
+        <view class='offer-main-content'>
+          <view class='offer-cell'>
+            <view class='offer-cell-title'>单价</view>
+            <view class='offer-cell-main'>{{objData.ironSell[0].offerPerPrice}}元/{{objData.ironSell[0].baseUnit}}</view>
+          </view>
+          <view class='offer-cell'>
+            <view class='offer-cell-title'>公差</view>
+            <view class='offer-cell-main'>{{objData.ironSell[0].tolerance !='' ? objData.ironSell[0].tolerance:'-'}}</view>
+          </view>
+          <view class='offer-cell'>
+            <view class='offer-cell-title'>产地</view>
+            <view class='offer-cell-main'>{{objData.ironSell[0].offerPlaces}}</view>
+          </view>
+          <view class='offer-cell'>
+            <view class='offer-cell-title'>交货期</view>
+            <view class='offer-cell-main'>{{objData.ironSell[0].dtime}}</view>
+          </view>
+          <view class='offer-cell'>
+            <view class='offer-cell-title'>备注</view>
+            <view class='offer-cell-main'>{{objData.ironSell[0].offerRemark !='' ? objData.ironSell[0].offerRemark:'暂无备注'}}</view>
+          </view>
+          <view class='offer-cell price' wx:if="{{objData.offerStatus == 1}}">
+            <view class="modify-price">
+              <button type='primary' bindtap='modifyIsedit' wx:if="{{objData.userStatus == 1}}">修改报价</button>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='offer-main' wx:if="{{objData.offerStatus == 0 || isEdit}}">
+        <view class='offer-main-title'>我的报价</view>
+        <view class='offer-price-cell unit-cell'>
+          <text class='label'>单价</text>
+          <input type='digit' placeholder='请输入单价' value="{{offerApi.offerPerPrice}}" bindinput='priceHandle' class='price'></input>
+          <view class='unit'>元/</view>
+          <picker bindchange="bindPickerChange" value="{{unitIndex}}" range="{{unit}}" range-key="unit">
+            <view class="picker">
+              {{unitData}}
+            </view>
+          </picker>
+        </view>
+        <view class='offer-price-wrap'>
+          <view class='offer-price-cell tolerance' wx:if="{{objData.ironTypeName == '不锈钢板' || objData.ironTypeName == '不锈钢卷'}}">
+            <text class='label'>公差</text>
+            <input type='text' value='{{offerApi.tolerance}}' bindinput='toleranceHandle' placeholder='请输入公差' class='price'></input>
+          </view>
+          <view class='offer-price-cell place'>
+            <!-- <text class='label'>产地</text> -->
+            <ajaxPicker api="findProPlaces" title="产地" old="{{offerApi.offerPlaces}}" bindonpick="proPlacesOnpick"></ajaxPicker>
+          </view>
+        </view>
+        <view class='offer-price-cell'>
+          <text class='label'>交货日期</text>
+          <picker mode="date" class='time' value="{{deliveryTime}}" start="{{today}}" end="2099-12-31" bindchange="changeDate">
+            <view class="picker">
+              {{deliveryTime != ''? deliveryTime :'请选择'}}
+            </view>
+          </picker>
+        </view>
+        <view class='offer-price-wrap'>
+          <textarea maxlength='35' wx:if="{{textareaHide}}" value="{{offerApi.offerRemark}}" placeholder='请输入备注，最多35个字' class='txtArea' bindinput="markHandle" placeholder-style="font-size:32rpx;color:#999;"></textarea>
+        </view>
+        <view wx:if="{{objData.offerStatus == 0}}">
+          <button type='primary' bindtap='saveOfferPirce'>发布报价</button>
+          <view class='no-plan' bindtap='noPlan'>无货或无计划</view>
+        </view>
+        <view wx:if="{{isEdit}}" class='modifyBtns'>
+          <view class='modifyBtn'>
+            <button type='default' style='border:1px solid #ddd;color: #999;' bindtap='quitOfferPrice'>取消</button>
+          </view>
+          <view class='modifyBtn'>
+            <button type='primary' bindtap='saveOfferPirce'>确认修改</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="extra-mask" wx:if="{{maskShow}}" bindtap='tapMask'></view>

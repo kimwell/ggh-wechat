@@ -1,0 +1,17 @@
+<view class="scope">
+  <view class='scope-list' wx:for="{{list}}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
+    <view class='scope-header'>
+      <text>{{item.title}}</text>
+      <text class="checkall" bindtap="checkAll" data-index="{{idx}}">
+        <text class="iconfont {{checkArr[idx] ? 'icon-BAI-fuxuankuangs select':'icon-BAI-fuxuankuang'}}"></text>全选</text>
+    </view>
+    <view class='scope-body'>
+      <view wx:for="{{item.arr}}" wx:key="{{sub.id}}" wx:for-index="index" wx:for-item="sub" bindtap="selectItem" data-pid="{{idx}}" data-item="{{item}}" data-sub="{{sub}}" data-index="{{index}}" class="{{sub.isCheck ? 'selected':''}}">{{sub.name}}
+        <text class='iconfont icon-duihao'></text>
+      </view>
+    </view>
+  </view>
+  <view class='save-btn'>
+    <button type='primary' class='login' bindtap='pbBtn'>保存</button>
+  </view>
+</view>

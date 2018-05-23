@@ -1,0 +1,8 @@
+<view>
+  <view class='menu'>
+    <view class='menu-item' wx:for="{{menuData}}" wx:key data-router="{{item.router}}" bindtap='goRouter'>{{item.name}}</view>
+  </view>
+  <view class='menu'>
+    <view class='quit' bindtap='loginOut'>退出当前账号</view>
+  </view>
+</view>

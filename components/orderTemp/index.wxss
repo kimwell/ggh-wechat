@@ -1,0 +1,290 @@
+/* components/orderTemp/index.wxss */
+@import '/static/css/fonts/fonts.wxss';
+.tabs-container {
+  position: relative;
+  width: 100%;
+  height: 84rpx;
+  background-color: #fff;
+}
+
+.scroll-view-warp {
+  width: 630rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 28rpx;
+}
+
+.scroll-view {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-view .item {
+  position: relative;
+  display: inline-block;
+  width: 140rpx;
+  height: 100%;
+  text-align: center;
+}
+
+.scroll-view .item .bottom-b {
+  position: absolute;
+  width: 60rpx;
+  height: 4rpx;
+  bottom: 0;
+  left: 40rpx;
+  background-color: #fff;
+}
+
+.scroll-view .item.active {
+  color: #527afe;
+}
+
+.scroll-view .item.active .bottom-b{
+  background-color: #527afe;
+}
+
+.screen {
+  position: absolute;
+  width: 124rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  right: 0;
+  top: 23rpx;
+  font-size: 30rpx;
+  color: #666;
+  text-align: center;
+  border-left: 1rpx solid #ddd;
+  background-color: #fff;
+}
+
+.screen .dot{
+  display: none;
+  position: relative;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 12rpx; 
+  background-color: red;
+  vertical-align: top;
+  left: -10rpx;
+}
+
+.screen.on{
+  color: #1875f0;
+}
+
+.screen.on .dot{
+  display: inline-block;
+}
+
+.item-list {
+  width: 100%;
+}
+
+.item-list .noData{
+  width: 500rpx;
+  margin: 100rpx auto;
+  text-align: center;
+}
+
+.item-list .noData image{
+  width: 100%;
+}
+
+.item-list .item {
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0 30rpx 20rpx;
+  margin-top: 20rpx;
+}
+
+.item-list .header {
+  position: relative;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #ddd;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.header .level{
+  display: inline-block;
+  width: 80rpx;
+  height: 28rpx;
+  vertical-align: sub;
+}
+.header .state-text{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.state-text.state2{
+  color: #F13A30;
+}
+
+.state-text.state1{
+  color: #50d166;
+}
+
+.state-text.state3,.state-text.state4{
+  color: #F18F1C;
+}
+
+.state-text.state5,.state-text.state6,.state-text.state7{
+  color: #666;
+}
+
+.item-list .item .base {
+  position: relative;
+  width: 100%;
+  height: 44rpx;
+  line-height: 44rpx;
+  margin-top: 20rpx;
+}
+
+.base .text {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.base .dot {
+  display: inline-block;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 12rpx;
+  background-color: #1875f0;
+  vertical-align: middle;
+  margin: -10rpx 10rpx 0;
+}
+
+.base .location {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+  height: 40rpx;
+  line-height: 38rpx;
+  border: 1rpx solid #1875f0;
+  color: #1875f0;
+  border-radius: 8rpx;
+  padding: 0 8rpx;
+  font-size: 28rpx;
+}
+
+.location .iconfont {
+  color: #1875f0;
+  font-size: 30rpx;
+} 
+
+.info-detail .normal {
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 24rpx;
+  margin-top: 16rpx;
+}
+
+.info-detail .normal .split {
+  display: inline-block;
+  width: 3rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  margin: 0 10rpx;
+  background-color: #ccc;
+}
+
+.item-list .item .offer {
+  width: 100%;
+  height: 134rpx;
+  background-color: #f8f8f8;
+  margin: 20rpx 0 16rpx 0;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.offer .price {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.offer .detail {
+  font-size: 24rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 16rpx;
+}
+
+.offer .detail .dot {
+  display: inline-block;
+  width: 8rpx;
+  height: 8rpx;
+  background-color: #999;
+  vertical-align: middle;
+  margin: -3rpx 12rpx 0;
+  border-radius: 8rpx;
+}
+
+.item-list .item .actions {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  min-height: 48rpx;
+}
+
+.actions .btn {
+  display: inline-block;
+  width: auto;
+  height: 48rpx;
+  line-height: 48rpx;
+  border: 1rpx solid #999;
+  padding: 0 20rpx;
+  color: #666;
+  font-size: 26rpx;
+  border-radius: 48rpx;
+  margin-left: 10rpx;
+}
+
+.fp{
+  position: absolute;
+  left: 0;
+  top: 12rpx;
+  color: #1875F0;
+  font-size: 26rpx;
+}
+
+.sale-man-num{
+  width: 112rpx;
+  height: 80rpx;
+  background:rgba(0,0,0,0.7);
+  border-radius: 100rpx 0 0 100rpx ;
+  position: fixed;
+  bottom: 40rpx;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 4rpx 0 4rpx 10rpx;
+}
+
+.sale-man-num .num{
+  line-height: 40rpx;
+  font-size: 36rpx;
+}
+
+.sale-man-num .text{
+  font-size: 22rpx;
+  line-height: 30rpx;
+}

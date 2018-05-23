@@ -1,0 +1,165 @@
+/**index.wxss**/
+.banner-img{
+  width: 100%;
+  height: 418rpx;
+}
+
+.banner-img image{
+  width: 100%;
+  height: 100%;
+}
+
+
+.entrances{
+  width: 100%;
+  height: 220rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding: 9rpx 15rpx 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.entrances image{
+  width: 360rpx;
+  height: 211rpx;
+}
+
+.honest-business,.news-center{
+  position: relative;
+  width: 100%;
+  height: 700rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.honest-business .title,.news-center .title{
+  width: 690rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 30rpx;
+}
+
+.honest-business .title .h3,.news-center .title .h3{
+  color: #333;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.honest-business .title .show-more,.news-center .title .show-more{
+  position: absolute;
+  color: #999;
+  font-size: 28rpx;
+  right: 30rpx;
+}
+
+.filter-tags{
+  width: 690rpx;
+  padding: 0 30rpx;
+}
+
+.filter-tags .tab{
+  display: inline-block;
+  width: auto;
+  padding: 0 28rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  border: 2rpx solid #999;
+  color: #999;
+  font-size: 32rpx;
+  border-radius: 52rpx;
+  margin-right: 20rpx;
+}
+
+.filter-tags .tab.active{
+  border-color: #1875F0;
+  color: #1875F0;
+}
+
+.shops-warp{
+  display: flex;
+  width: 100%;
+  height: 400rpx;
+  margin: 40rpx 0 10rpx 0;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.shops-warp .shop-item{
+  display: inline-block;
+  width: 690rpx;
+  height: 400rpx;
+}
+
+.shops-warp .shop-item image{
+  display: block;
+  width: 100%;
+  height: 192rpx;
+  margin-bottom: 20rpx;
+}
+
+
+.news-center{
+  height: auto;
+}
+
+.news-center .news-items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 690rpx;
+  margin: 0 auto;
+}
+
+.news-items .item{
+  position: relative;
+  width: 330rpx;
+  height: 372rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #ddd;
+  margin-bottom: 30rpx;
+}
+
+.news-items .item .news-type{
+  position: absolute;
+  display: block;
+  width: 100rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  top: 160rpx;
+  left: 10rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 22rpx;
+  border-radius: 4rpx;
+  background:rgba(0,0,0,.48);
+}
+
+.news-items .item image{
+  width: 100%;
+  height: 200rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+
+.news-items .item .tit{
+  display: block;
+  width: 290rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.pub-info{
+  width: 290rpx;
+  margin: 26rpx auto 0;
+  color: #999;
+  font-size: 24rpx;
+}
+.pub-info .date{
+  float: right;
+}

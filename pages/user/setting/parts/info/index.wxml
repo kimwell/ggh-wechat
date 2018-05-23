@@ -1,0 +1,64 @@
+<view class="userInfo">
+  <view class='info-wrapper'>
+    <view class='baseInfo'>
+      <view class='companyName'>{{companyName}}</view>
+      <view class='mobile'>{{mobile}}
+        <roleTag wx:if="{{usrType !=''}}" role="{{usrType}}"></roleTag>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{usrType == 1}}">
+    <view class='info-wrapper'>
+      <view class='info-item-wrapper'>
+        <view class='info-item'>
+          <view class='info-item-title'>联系人</view>
+          <view class='info-item-main'>
+            <input type='text' value="{{userData.contact}}" bindinput='nameHandle' placeholder='请输入联系人'></input>
+          </view>
+        </view>
+        <view class='info-item'>
+          <view class='info-item-title'>QQ</view>
+          <view class='info-item-main'>
+            <input type='text' value="{{userData.qq}}" bindinput='qqHandle' placeholder='请输入QQ'></input>
+          </view>
+        </view>
+        <view class='info-item'>
+          <view class='info-item-title'>所在地区</view>
+          <view class='info-item-main'>
+            <cityPicker wx:if="{{userData.cityName !=''}}" className old="{{userData.cityName}}" bindonpick="cityOnpick"></cityPicker>
+          </view>
+        </view>
+        <view class='info-item'>
+          <view class='info-item-title'>办公地址</view>
+          <view class='info-item-main'>
+            <input type='text' value="{{userData.address}}" bindinput='addressHandle' placeholder='详细地址'></input>
+          </view>
+        </view>
+        <view class='info-item'>
+          <view class='info-item-title'>仓库</view>
+          <view class='info-item-main'>
+            <picker bindchange="bindPickerChange" value="{{storeIndex}}" range-key="name" range="{{storeList}}">
+              <view class="picker">
+                {{userData.storeHouseName !=''? userData.storeHouseName:'请选择'}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='info-wrapper'>
+      <view class='info-item'>
+        <view class='info-item-title'>QQ</view>
+        <view class='info-item-main'>
+          <input type='text' value="{{userData.qq}}" bindinput='qqHandle' placeholder='请输入QQ'></input>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='info-btns'>
+    <button type="primary" bindtap='saveInfos'>确认</button>
+    <view class='giveup' bindtap='giveUpInfo'>放弃更改</view>
+  </view>
+</view>

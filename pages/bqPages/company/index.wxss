@@ -1,0 +1,28 @@
+page{
+  background-color: #fff;
+}
+.company{
+  padding: 40rpx 30rpx;
+}
+.company .company-item{
+  margin-bottom: 20rpx;
+}
+.company .company-item .company-item-title{
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 8rpx;
+}
+.company .company-item .company-item-main{
+  font-size: 36rpx;
+  color: #333;
+}
+.call{
+  display: inline-block;
+  border: 1px solid #1875F0;
+  color: #1875F0;
+  font-size: 28rpx;
+  width: 96rpx;
+  text-align: center;
+  border-radius: 24rpx;
+  vertical-align: 2px;
+}

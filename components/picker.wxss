@@ -1,0 +1,128 @@
+@import '../static/css/fonts/fonts.wxss';
+.zd{
+   z-index: 200000; 
+}
+
+.picker-mask{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: .6;
+}
+
+.picker-container{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 600rpx;
+  background-color: #fff;
+}
+
+.header{
+  position: relative;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab{
+  display: inline-block;
+  margin-left: 20rpx;
+}
+.tab text{
+  color: #666;
+  font-size: 30rpx;
+  margin-right: 64rpx;
+}
+.tab text.active{
+  position: relative;
+  color: #3389FF;
+}
+.tab text.active::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4rpx;
+  background-color: #3389FF;
+  border-radius: 30rpx;
+  bottom: -30rpx;
+  left: 0;
+}
+
+.close{
+  position: absolute;
+  right: 20rpx;
+  color: #3389FF;
+  font-size: 30rpx;
+}
+
+.pick-items{
+  width: 100%;
+  height: 499rpx;
+  font-size: 28rpx;
+  color: #333;
+  white-space: nowrap;
+}
+
+.pick-item{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40rpx 20rpx 10rpx;
+  transition: all .2s;
+  vertical-align:top;
+}
+
+.show-0 .pick-item{
+  left: 0;
+}
+
+.show-1 .pick-item{
+  left: -100%;
+}
+
+.show-2 .pick-item{
+  left: -200%;
+}
+
+.item-list{
+  width: 100%;
+  height: 100%;
+}
+
+.item-list .item{
+  height: 76rpx;
+}
+
+.item-list .item.active{
+  color: #3389FF;
+}
+
+.ajax-items{
+  width: 100%;
+  height: 499rpx;
+  font-size: 24rpx;
+  box-sizing: border-box;
+  padding: 40rpx 20rpx 20rpx;
+  color: #3389FF;
+}
+
+.ajax-items text{
+  display: inline-block;
+  border: 1rpx solid #3389FF;
+  padding: 0 15rpx;
+  border-radius: 8rpx;
+  margin: 0 20rpx 20rpx 0;
+}
+
+.ajax-items .active{
+  background-color: #3389FF;
+  color: #fff;
+}

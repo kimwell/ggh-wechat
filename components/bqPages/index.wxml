@@ -1,0 +1,102 @@
+<view class='nav'>
+  <view class='nav-wrapper'>
+    <view wx:for="{{nav}}" wx:key="{{item.id}}" wx:for-index="index" bindtap='navTap' data-id="{{index}}" class="nav-item {{index == status ? 'current':''}}">
+      <view class='name'>{{item.name}}</view>
+      <view class='count'>({{item.count}})</view>
+    </view>
+  </view>
+  <view class='today'>
+    <text class='text' bindtap='switchToday'>{{today ? '今天':'全部'}}</text>
+  </view>
+</view>
+<view class="common-page {{types == 2 ? 'offer':''}}">
+  <view class='list'>
+    <slot></slot>
+    <view class='list-item' wx:for="{{list}}" wx:for-index="index" wx:key="{{item.id}}" data-types="{{types}}" data-index="{{index}}" data-obj="{{item}}" bindtap='goDetail'>
+      <view class='item-wrap'>
+        <!--复制、编辑、删除  -->
+        <view class='extra-option' wx:if="{{item.isShow}}">
+          <view class='option-item' catchtap='tapCopy' data-obj="{{item}}" data-idx="{{index}}">
+            <text class='iconfont icon-fuzhisvg'></text>
+            <text>复制</text>
+          </view>
+          <view class='option-item' catchtap='tapEdit' data-obj="{{item}}" data-idx="{{index}}" wx:if="{{item.editStatus != 1}}">
+            <text class='iconfont icon-compile'></text>
+            <text>编辑</text>
+          </view>
+          <view class='option-item' catchtap='tapDel' data-obj="{{item}}" data-idx="{{index}}" wx:if="{{item.buyStatus == 0}}">
+            <text class='iconfont icon-LC_icon_delete_line'></text>
+            <text>删除</text>
+          </view>
+        </view>
+        <!--end  -->
+        <view class="item-header {{types === 2 ? 'header-extra' : '' }}">
+          <text>{{item.ironTypeName}}</text>
+          <text class='dot'></text>
+          <text>{{item.materialName}}</text>
+          <text class='dot'></text>
+          <text>{{item.surfaceName}}</text>
+          <text><text class='iconfont icon-location'>{{item.locationName}}</text></text>
+          <text class='iconfont icon-gengduo options' catchtap='showOption' data-id="{{index}}" wx:if="{{types == 1}}"></text>
+        </view>
+        <view class='item-info'>
+          <text>{{item.specifications != '' ? item.specifications : item.height +'*' + item.width+ '*'+ item.length}}</text>
+          <text class='split'></text>
+          <text>{{item.tolerance !=''?item.tolerance:'-'}}</text>
+          <text class='split'></text>
+          <text>
+            <text wx:if="{{item.weights != ''}}">{{item.weights}}{{item.weightUnit}}</text>
+          <text wx:if="{{item.numbers != '' && item.weights != ''}}">/</text>
+          <text wx:if="{{item.numbers != ''}}">{{item.numbers}}{{item.numberUnit}}</text>
+          </text>
+        </view>
+        <view class='item-place'>产地：{{item.proPlacesName}}</view>
+        <view class='item-remark'>备注：{{item.remark != '' ? item.remark : '暂无'}}</view>
+        <view class="item-time {{types == 2 && status == 0 ? 'special':''}}">
+          <text wx:if="{{types == 1 || types == 2 && status != 0}}" class="{{types === 2 && item.offerStatus === '2' ?'success-time':''}}"><text wx:if="{{types === 2 && item.offerStatus == '2'}}">成交时间：</text>
+          <text wx:if="{{item.buyStatus == '2' || item.offerStatus == '2'}}">{{item.time}}</text>
+          <text wx:else>{{item.ctime}}</text></text>
+          <text class='special-btn' wx:if="{{types == 2 && status == 0}}" data-item="{{item}}" catchtap='ignoreBtn'>忽略</text>
+          <view class="item-extra">
+            <view wx:if="{{types === 1}}">
+              <view class='tag red' wx:if="{{status == 1}}">
+                <countDown isAction="{{true}}" endTime="{{item.checkTime}}" nowTime="{{item.serveTime}}">
+                  <text slot="after">后结束</text>
+                </countDown>
+              </view>
+              <text class='tag blue' wx:if="{{status == 1}}" style='margin-left:10rpx;'>{{item.sellNum}}报价</text>
+              <text class='tag detault' wx:if="{{status == 2}}">¥{{item.offerPerPrice}}元/{{item.baseUnit}}</text>
+              <text class='tag miss' wx:if="{{status == 3}}">已失效</text>
+            </view>
+            <view wx:if="{{types === 2}}">
+              <view class='tag red' wx:if="{{status == 0}}">
+                <countDown isAction="{{true}}" endTime="{{item.sellTime}}" nowTime="{{item.serveTime}}">
+                </countDown>
+              </view>
+              <text class='tag blue' wx:if="{{status == 0}}" style="margin-left:15rpx;">{{item.sellNum}}个报价</text>
+              <text class='tag detault' data-obj="{{item}}" data-types="{{types}}" catchtap="modifyPrice" wx:if="{{status == 1 && item.userStatus == 1}}">修改报价</text>
+              <text class='tag detault' wx:if="{{status == 2}}" catchtap="makeCall" data-tel="{{item.contactNum}}">联系买家</text>
+              <text class='tag miss' wx:if="{{status == 3}}">未中标</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="tips">
+      <view wx:if="{{hasMore && list != 0 }}" class="loadTips">
+        <text>加载中...</text>
+      </view>
+      <view wx:if="{{list != 0 && !hasMore}}" class="loadTips">
+        <text>没有更多内容了</text>
+      </view>
+    </view>
+    <view class='noData' wx:if="{{list == 0 && !hasMore}}">
+      <view>
+        <image src='../../static/images/nodata.png'></image>
+      </view>
+      <text>暂无数据</text>
+    </view>
+
+  </view>
+</view>
+<view class="extra-mask" wx:if="{{maskShow}}" bindtap='tapMask'></view>

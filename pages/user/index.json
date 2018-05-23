@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#1875F0",
+  "navigationBarTextStyle": "#fff",
+  "navigationBarTitleText": "我的",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "grade": "../../components/grade/index",
+    "roleTag":"../../components/roleTag/index"
+  }
+}

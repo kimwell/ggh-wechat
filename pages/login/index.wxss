@@ -1,0 +1,70 @@
+page{
+  background-color: #fff;
+}
+.common-form{
+  padding: 100rpx 60rpx;
+}
+.common-form-header{
+  font-size: 48rpx;
+  color: #000;
+  font-weight: bold;
+}
+.form-content{
+  margin-top: 100px;
+  position: relative;
+}
+.error-msg{
+  position: absolute; 
+  top: -80rpx;
+  left: 15rpx;
+  width: 100%;
+  font-size: 28rpx;
+  color: #FF2626;
+}
+.form-content .section{
+  position: relative;
+  margin-bottom: 50rpx;
+}
+.form-content .section.short{
+  width: 55%;
+}
+.form-content button.codeBtn{
+  position: absolute;
+  left: 106%;
+  top: 0;
+  border: 1px solid #ccc;
+  color: #999;
+  font-size: 32rpx;
+  width: 260rpx;
+}
+.form-content input{
+  color: #333;
+  font-size: 32rpx;
+  padding: 0 15rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 1px solid #ccc;
+}
+.form-content input::-webkit-input-placeholder{
+  color: #BDBDBD;
+}
+.forget{
+  text-align: right;
+  font-size: 28rpx;
+  color: #999;
+  line-height: 88rpx;
+}
+button.login{
+  width: 200rpx;
+}
+.common-bottom{
+  position: absolute;
+  bottom: 30rpx;
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+.common-bottom navigator{
+  font-size: 28rpx;
+  color: #999;
+}

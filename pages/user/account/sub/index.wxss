@@ -1,0 +1,78 @@
+.account-main, .account-remark {
+  background-color: #fff;
+  margin-bottom: 47rpx;
+}
+
+.account-from-cell {
+  position: relative;
+  font-size: 30rpx;
+  color: #666;
+  padding-left: 200rpx;
+  padding: 30rpx 0 30rpx 200rpx;
+  overflow: hidden;
+}
+
+.account-from-cell::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30rpx;
+  height: 1px;
+  width: 100%;
+  background-color: #ddd;
+}
+
+.account-from-cell:last-child::after {
+  display: none;
+}
+
+.account-from-cell .from-cell-title {
+  position: absolute;
+  width: 200rpx;
+  top: 35rpx;
+  left: 0;
+  text-indent: 1em;
+}
+.account-from-cell .from-cell-title text{
+  color: #EA3439;
+}
+.account-remark {
+  padding: 30rpx;
+}
+
+.account-remark .remark-title {
+  font-size: 30rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.account-remark textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 15rpx;
+  box-sizing: border-box;
+  border-radius: 4rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.placeHolder {
+  color: #bdbdbd;
+  font-size: 28rpx;
+}
+
+.account-btn {
+  display: flex;
+  padding-bottom: 40rpx;
+}
+
+.account-btn .btn {
+  flex: 1;
+  padding: 0 15rpx;
+}
+
+.checkbox {
+  font-size: 28rpx;
+  color: #666;
+}
+

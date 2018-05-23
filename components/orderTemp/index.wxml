@@ -1,0 +1,85 @@
+<!--components/orderTemp/index.wxml-->
+<!-- 筛选器 -->
+<view class='tabs-container'>
+  <view class='scroll-view-warp'>
+    <scroll-view scroll-x class='scroll-view'>
+      <view class='item {{ active == index ? "active" : "" }}' wx:for="{{ tabs }}" wx:key bindtap='switchTab' data-i="{{ index }}">
+        {{ item.label }}
+        <view class='bottom-b'></view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='screen {{ screenOn ? "on" : "" }}' bindtap='goScreen'>
+    筛选 <text class='dot'></text>
+  </view>
+</view>
+
+<view class='item-list'>
+  <view class='noData' wx:if="{{list.length == 0 }}">
+    <view>
+      <image src='../../static/images/nodata.png'></image>
+    </view>
+    <text>暂无数据</text>
+  </view>
+
+  <view class='item' wx:for="{{ list }}" wx:key bindtap='goDetail' data-item="{{ item }}">
+    <view class='header'>
+      {{ item.sellCompanyName }}
+      <image class="level" wx:if="{{ item.marginLevel != '' }}" src='{{ "/static/images/grade"+ item.level + ".png" }}'></image>
+
+      <view class='state-text {{ "state" + item.status }}'>{{ item.stateText }}</view>
+    </view>
+    <view class='info-detail'>
+      <view class='base'>
+        <text class='text'>{{ item.ironTypeName }}</text>
+        <text class='dot'></text>
+        <text class='text'>{{ item.materialName }}</text>
+        <text class='dot'></text>
+        <text class='text'>{{ item.surfaceName }}</text>
+        <view class='location'>
+          <text class='iconfont icon-location'></text> {{ item.locationName }}
+        </view>
+      </view>
+      <view class='normal'>
+      {{ item.specifications != '' ? item.specifications : item.height+'*'+item.width+'*'+item.length }}
+        <text class='split'></text> {{ item.tolerance != '' ? item.tolerance : '-' }}
+        <text class='split'></text> {{ item.weights != '' ? item.weights + item.weightUnit : '-' }}/{{ item.numbers != '' ? item.numbers + item.numberUnit : '-' }}
+      </view>
+    </view>
+    <view class='offer'>
+      <view class='price'>¥{{ item.price }}/{{ item.saleBaseUnit }}</view>
+      <view class='detail'>
+        {{ item.saleTolerance != '' ? item.saleTolerance : '-' }}
+        <text class='dot'></text> {{ item.saleProPlaceName }}
+        <text class='dot'></text> {{ item.deliveryTime }}(交货)
+        <text wx:if="{{ item.sellRemark != '' }}" class='dot'></text>{{ item.sellRemark }}
+      </view>
+    </view>
+
+    <!-- 买家 -->
+    <view class='actions' wx:if="{{ isBuyer }}">
+      <view class='btn' wx:if="{{ item.status == 2 }}" catchtap='cancelOrder' data-i="{{ index }}">取消订单</view>
+      <view class='btn' wx:if="{{ item.status != 2 }}" catchtap='buyAgan' data-obj="{{ item }}">再次购买</view>
+      <view class='btn' wx:if="{{ item.status == 1 }}" catchtap='toVoid'>作废该单</view>
+    </view>
+
+    <!-- 卖家 -->
+    <view class='actions' wx:if="{{ !isBuyer }}">
+      <text class='fp' wx:if="{{ role != 'business' }}" catchtap="bindSales" data-item="{{ item }}">{{ item.saleId != '' ?  '换绑业务员' : '绑定业务员' }}</text>
+
+      <view class='btn' wx:if="{{ item.status == 2 }}" catchtap='cancelOrder' data-i="{{ index }}">取消</view>
+      <view class='btn' wx:if="{{ item.status == 2 }}" catchtap='sellConf' data-i="{{ index }}">确认</view>
+      <view class='btn' wx:if="{{ item.status == 2 }}" catchtap='editOrder' data-i="{{ index }}">修改</view>
+      <view class='btn' wx:if="{{ item.status == 1 }}" catchtap='toVoid'>作废</view>
+    </view>
+  </view>
+
+  <view class='sale-man-num' wx:if="{{ !isBuyer && saleManNum > 0 }}" bindtap='fpSome'>
+    <view class="num">{{ saleManNum }}</view>
+    <view class='text'>未绑定</view>
+  </view>
+
+</view>
+
+<cancelTip show="{{ cancelShow }}" apiUrl="{{ isBuyer ? 'BuyerCancelReason' : 'SellerCancelReason' }}" 
+bindonhide="cancelHide" bindonpick="cancelPick"></cancelTip>

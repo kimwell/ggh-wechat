@@ -1,0 +1,86 @@
+.info-wrapper {
+  background-color: #fff;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.baseInfo {
+  padding: 30rpx;
+}
+
+.baseInfo .companyName {
+  font-size: 32rpx;
+  margin-bottom: 15rpx;
+}
+
+.baseInfo .mobile {
+  height: 36rpx;
+  line-height: 36rpx;
+}
+
+.info-btns {
+  padding: 40rpx 60rpx;
+}
+
+.giveup {
+  margin-top: 40rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.info-item-wrapper {
+  padding: 0 0 0 30rpx;
+}
+
+.info-item {
+  position: relative;
+  padding: 24rpx 40rpx 24rpx 200rpx;
+  box-sizing: border-box;
+}
+
+.info-item::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: '';
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  background-color: #ddd;
+}
+
+.info-item:last-child::after {
+  display: none;
+}
+
+.info-item::before {
+  content: '';
+  position: absolute;
+  top: 40rpx;
+  right: 20rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border: 1px solid #bdbdbd;
+  border-left: 0;
+  border-bottom: 0;
+  transform: rotate(45deg);
+}
+
+.info-item .info-item-title {
+  position: absolute;
+  top: 24rpx;
+  left: 30rpx;
+  width: 200rpx;
+  text-align: left;
+}
+
+.info-item  input {
+  text-align: right;
+}
+
+.picker {
+  text-align: right;
+}

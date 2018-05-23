@@ -1,0 +1,21 @@
+var roleTag = {
+  userType: function (str) {
+    switch (str * 1) {
+      case 0:
+        return '普通注册用户'
+        break;
+      case 1:
+        return '商户管理员'
+        break;
+      case 2:
+        return '报价员'
+        break;
+      case 3:
+        return '业务员'
+        break;
+    }
+  }
+}
+module.exports = {
+  userType: roleTag.userType
+}

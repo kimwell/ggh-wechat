@@ -1,0 +1,77 @@
+/* components/orderTemp/Salesman/index.wxss */
+.buy-compny{
+  width: 100%;
+  height: 102rpx;
+  line-height: 102rpx;
+  border-top: 1rpx solid #ddd;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  color: #666;
+  background-color: #fff;
+}
+
+.title{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.salemans{
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.salemans .saleman-item{
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-bottom: 1rpx solid #ddd;
+  color: #333;
+  font-size: 30rpx;
+}
+
+.salemans .saleman-item:last-child{
+  border: 0;
+}
+
+
+.order{
+  width: 100%;
+  height: 140rpx;
+  border-top: 1rpx solid #ddd;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+
+.order .value{
+  font-size: 30rpx;
+  color: #666;
+  line-height: 42rpx;
+}
+
+.order .tip{
+  font-size: 22rpx;
+  color: #F18F1C;
+  margin-top: 8rpx;
+  line-height: 30rpx;
+}
+
+.sale-name{
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  height: 96rpx;
+  line-height: 96rpx;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  color: #333;
+}

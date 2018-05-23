@@ -1,0 +1,139 @@
+/* components/specInput/index.wxss */
+@import '/components/input/index.wxss';
+
+.spec-warp{
+  width: 100%;
+  font-size: 34rpx;
+  color: #333;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.spec-warp .item{
+  position: relative;
+  width: 225rpx;
+  height: 96rpx;
+  line-height: 48rpx;
+  border-radius: 4rpx;
+  background-color: #fafafa;
+  border: 1rpx solid #ddd;
+  padding: 24rpx 20rpx;
+  box-sizing: border-box;
+  margin-right: 30rpx;
+  text-align: left;
+  color: #666;
+}
+
+.item.no-mr{
+  margin-right: 0;
+}
+
+.item .value{
+  position: absolute;
+  right: 24rpx;
+  color: #333;
+}
+
+.spec-picker{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #F4F5F5;
+  left: 0;
+  top: 0;
+  z-index: 1001;
+}
+
+.spec-picker .from-group {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding-left: 20rpx;
+  margin-top: 24rpx;
+}
+
+.spec-picker .from-group.pd20 {
+  padding: 20rpx;
+}
+
+.spec-picker .from-group .group-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 96rpx;
+  line-height: 96rpx;
+  border-bottom: 1rpx solid #ddd;
+  color: #333;
+}
+
+.spec-picker .from-group .group-item:last-child {
+  border-bottom: 0;
+}
+
+.group-item .label {
+  font-size: 32rpx;
+}
+
+.group-item .value {
+  position: absolute;
+  width: 600rpx;
+  text-align: right;
+  right: 40rpx;
+  top: 0;
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.group-item .input {
+  position: absolute;
+  display: inline-block;
+  width: 500rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  right: 20rpx;
+  top: 0;
+  font-size: 30rpx;
+  text-align: right;
+}
+
+.rd-contnet {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+
+.rd-contnet .tit {
+  display: block;
+  color: #333;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+.rd-contnet .rd-item {
+  display: inline-block;
+  background-color: #3389ff;
+  color: #fff;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  padding: 10rpx 30rpx;
+  border-radius: 100rpx;
+  margin: 20rpx 0 0 20rpx;
+}
+
+.btn-save{
+  position: fixed;
+  width: 690rpx;
+  bottom: 120rpx;
+  left: 30rpx;
+}
+.btn-cancel{
+  position: fixed;
+  width: 690rpx;
+  bottom: 20rpx;
+  left: 30rpx;
+  background:#fff;
+  color: #1875F0;
+  border: 2rpx solid #1875F0;
+}

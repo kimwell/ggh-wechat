@@ -1,0 +1,88 @@
+.tips{
+  width: 100%;
+  height:76rpx;
+  text-align: center;
+  line-height: 76rpx;
+  font-size: 26rpx; 
+}
+.tips.blue{
+  background-color: #E1EEFF;
+  color: #1875F0;
+}
+.tips.red{
+  background-color: #FDDFDF;
+  color: #FF2626;
+}
+.tips.green{
+  background-color: #D5FFDC;
+  color: #008947;
+}
+.info-item{
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.item-wrap{
+  position: relative;
+  padding-left: 45%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.item-wrap .item-title{
+  position: absolute;
+  left: 0;
+  top: 20rpx;
+  width: 40%;
+  font-size: 30rpx;
+  color: #999;
+  text-indent: 2em;
+}
+.item-wrap .item-title text,.image-file .image-file-list .list-title text{
+  color: #EA3439;
+}
+.item-wrap .item-main{
+  font-size: 28rpx;
+  color: #333;
+}
+.item-wrap-other{
+  padding: 20rpx 46rpx;
+}
+.item-wrap-other .other-title{
+  font-size: 30rpx;
+  color: #999;
+  margin-bottom: 15rpx;
+}
+.item-wrap-other .other-text{
+  font-size: 28rpx;
+  color: #333;
+}
+.image-file .image-file-list{
+  display: inline-block;
+  width: 50%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.image-file .image-file-list .list-title{
+  font-size: 30rpx;
+  color: #999;
+  margin-bottom: 20rpx;
+  text-indent: 2em;
+  margin-left: -20rpx;
+}
+.image-file .image-file-list image{
+  max-width: 100%;
+  width: 300rpx;
+  height: 172rpx;
+}
+.fialPage{
+  padding-bottom: 120rpx;
+}
+.recommit{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 116rpx;
+  background-color: #F4F5F5;
+  box-sizing: border-box;
+  padding: 14rpx 60rpx;
+}

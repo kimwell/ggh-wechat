@@ -1,0 +1,243 @@
+page {
+  padding-top: 104rpx;
+}
+
+.searchBar {
+  height: 104rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 9;
+}
+
+.search {
+  position: relative;
+  margin: 20rpx 30rpx;
+}
+
+.search .quit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 28rpx;
+  color: #1875f0;
+  line-height: 64rpx;
+}
+
+.search .search-icon {
+  position: absolute;
+  top: 10rpx;
+  left: 0;
+  width: 60rpx;
+  text-align: center;
+  color: #999;
+  font-size: 40rpx;
+}
+
+.search .search-del {
+  position: absolute;
+  top: 10rpx;
+  right: 90rpx;
+  width: 40rpx;
+  text-align: center;
+  color: #ccc;
+  font-size: 38rpx;
+  z-index: 9;
+}
+
+.search-txt {
+  box-sizing: border-box;
+  width: 614rpx;
+  height: 64rpx;
+  background-color: #f4f5f5;
+  border-radius: 4rpx;
+  padding: 0 40rpx 0 60rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.account-wrap {
+  padding: 30rpx;
+}
+
+.account-wrap .account-item {
+  background-color: #fff;
+  box-shadow: 0px 2px 4px 0px rgba(201, 204, 209, 1);
+  border-radius: 8rpx;
+  padding: 30rpx 30rpx 0;
+  margin-bottom: 30rpx;
+}
+
+.item-header {
+  position: relative;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+
+.item-header .role {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.item-body {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.item-body .create {
+  font-size: 22rpx;
+}
+
+.item-body view {
+  margin-top: 15rpx;
+}
+
+.item-body .create text {
+  display: inline-block;
+  padding: 0 15rpx;
+}
+
+.item-body .remark text {
+  color: #333;
+}
+
+.item-header .dot {
+  display: inline-block;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 6rpx;
+  background-color: #1875f0;
+  margin: 0 16rpx;
+  vertical-align: 2px;
+}
+
+.item-footer {
+  border-top: 1px solid #ddd;
+  margin: 0 -30rpx;
+  margin-top: 20rpx;
+  padding: 14rpx 30rpx;
+  text-align: right;
+}
+
+.item-footer text {
+  font-size: 26rpx;
+  color: #999;
+  width: 140rpx;
+  height: 48rpx;
+  border-radius: 30rpx;
+  border: 1px solid #999;
+  margin-left: 15rpx;
+  padding: 0 20rpx;
+}
+
+.plus {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.plus image {
+  width: 176rpx;
+  height: 166rpx;
+}
+
+.noData {
+  padding-top: 250rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.noData image {
+  width: 438rpx;
+  height: 342rpx;
+  margin-bottom: 30rpx;
+}
+
+.reset-mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.reset {
+  position: fixed;
+  width: 80%;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  border-radius: 8rpx;
+}
+
+.reset .reset-body {
+  padding: 30rpx 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.reset .reset-header {
+  text-align: center;
+  font-size: 32rpx;
+  color: #000;
+  height: 104rpx;
+  line-height: 104rpx;
+}
+
+.reset .reset-footer {
+  display: flex;
+}
+
+.reset .reset-footer .btn {
+  flex: 1;
+  height: 87rpx;
+  line-height: 87rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.reset .reset-footer .btn:last-child {
+  color: #1875f0;
+  border-left: 1px solid #ddd;
+}
+
+.cell {
+  position: relative;
+  padding-left: 160rpx;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 26rpx;
+}
+
+.cell .cell-title {
+  position: absolute;
+  width: 150rpx;
+  text-align: right;
+  top: 0;
+  left: 0;
+  line-height: 48rpx;
+}
+
+.cell .cell-main {
+  line-height: 48rpx;
+}
+
+.reset-txt {
+  height: 48rpx;
+  line-height: 48rpx;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  width: 316rpx;
+  padding: 0 15rpx;
+}

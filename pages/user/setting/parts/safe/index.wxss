@@ -1,0 +1,43 @@
+.reset {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.reset-item ,.reset-btn{
+  position: relative;
+  height: 96rpx;
+  line-height: 96rpx;
+}
+.reset-btn{
+  color: #F13A30;
+  text-align: center;
+  font-size: 32rpx;
+}
+.reset-item::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 30rpx;
+  height: 1px;
+  content: '';
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  background-color: #ddd;
+}
+.reset-item:last-child::after{
+  display: none;
+}
+.reset-item input {
+  height: 96rpx;
+  line-height: 96rpx;
+  color: #666;
+  font-size: 30rpx;
+  padding: 0 30rpx;
+}
+.forgot{
+  text-align: right;
+  padding: 0 30rpx;
+  color: #1875F0;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}

@@ -1,0 +1,6 @@
+<!--components/input/index.wxml-->
+<view class='input-warp {{ unit != "" ? "unit-show" : "" }}'>
+  <text class='label'>{{ title ? title : 'sss' }}</text>
+  <input bindinput="textIn" disabled='{{ disable }}' type="{{ inType }}" placeholder="{{ placeholderShow ? '请输入' : '' }}" value="{{ value }}"/>
+  <text class='unit' wx:if="unit != ''">{{ unit }}</text>
+</view>

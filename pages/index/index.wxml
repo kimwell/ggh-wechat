@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='banner-img'>
+    <image src="https://tbxoss.oss-cn-hangzhou.aliyuncs.com/ggh/mobile/mobile/mobile_banner.png"></image>
+  </view>
+
+  <view class='entrances'>
+    <form report-submit bindsubmit='formSubmit' data-to="/pages/publish/subPages/pbList/index" data-isMain="true" class='goast-form'>
+      <button formType="submit">
+        <image src="../../static/images/btn-publish.png"></image>
+      </button>
+    </form>
+    <form report-submit bindsubmit='formSubmit' data-to="/pages/offer/index" data-isMain="true" class='goast-form'>
+      <button formType="submit">
+        <image src="../../static/images/btn-offer.png"></image>
+      </button>
+    </form>
+  </view>
+
+  <view class='honest-business'>
+    <view class='title'>
+      <text class='h3'>诚信联盟商户</text>
+      <form class='show-more goast-form' report-submit bindsubmit='formSubmit' data-to="/pages/index/shops/index">
+        <button formType="submit">查看全部</button>
+      </form>
+    </view>
+    <view class='filter-tags'>
+      <form report-submit bindsubmit='filterT
+      wx:for="{{filterTags}}" wx:key' data-index="{{ index }}" class="goast-form tab {{ tagActive == index ? 'active' : '' }}">
+        <button formType="submit">
+          {{ item.label }}
+        </button>
+      </form>
+    </view>
+    <view class='scroll-warp'>
+      <scroll-view class="shops-warp" scroll-x>
+        <view class="shop-item" wx:for="{{ shopList}}" wx:key>
+          <image wx:for="{{ item }}" wx:for-item="img" wx:for-index="i" wx:key src="{{ img.url != '' ? img.url : defaultImg }}"></image>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class='news-center'>
+    <view class='title'>
+      <text class='h3'>新闻中心</text>
+      <form class='show-more goast-form' report-submit bindsubmit='formSubmit' data-to="/pages/index/news/index">
+        <button formType="submit">
+          查看全部
+        </button>
+      </form>
+    </view>
+    <view class='news-items'>
+      <view class='item' wx:for="{{ newsList }}" wx:key bindtap='routeDetail' data-id="{{ item.id }}">
+        <image src='{{ item.coverImage }}'></image>
+        <text class='news-type'>{{ item.typeName }}</text>
+        <text class='tit'>{{ item.inTitile }}</text>
+        <view class='pub-info'>
+          {{ item.author }}
+          <text class='date'>{{ item.pbDate }}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

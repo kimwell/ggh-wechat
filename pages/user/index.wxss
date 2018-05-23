@@ -1,0 +1,189 @@
+.user {
+  padding-bottom: 50rpx;
+}
+
+.header {
+  position: relative;
+  height: 240rpx;
+  background: #1875f0;
+  color: #fff;
+}
+
+.setIcon {
+  position: absolute;
+  right: 50rpx;
+  top: 80rpx;
+  font-size: 44rpx;
+  color: #f3f8fe;
+}
+
+.header-info {
+  position: relative;
+  padding: 60rpx 50rpx 0;
+}
+
+.header-info .account {
+  font-size: 48rpx;
+  margin-bottom: 20rpx;
+}
+
+.header-info .account .label {
+  position: relative;
+  top: -3px;
+  height: 34rpx;
+  line-height: 34rpx;
+  padding: 0 20rpx;
+  background: rgba(255, 99, 105, 1);
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 22rpx;
+  margin-left: 10rpx;
+}
+
+.header-info .company {
+  font-size: 28rpx;
+}
+
+.user-nav {
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+}
+
+.user-nav-item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.user-nav-item.current {
+  color: #1875f0;
+  font-weight: bold;
+}
+
+.user-nav-item.current::after {
+  content: '';
+  position: absolute;
+  width: 40rpx;
+  height: 4rpx;
+  background-color: #1875f0;
+  bottom: 0;
+  left: calc(50% - 20rpx);
+}
+
+.user-cell {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.user-cell-main .user-cell-header {
+  position: relative;
+  font-size: 28rpx;
+  color: #333;
+  padding: 28rpx 30rpx;
+  overflow: hidden;
+}
+
+.user-cell-header .header-more {
+  position: relative;
+  font-size: 24rpx;
+  color: #999;
+  float: right;
+  top: 5rpx;
+}
+
+.user-cell-main .user-cell-header::after, .user-cell-nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30rpx;
+  height: 1px;
+  width: 100%;
+  background-color: #ddd;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+
+.user-cell-nav .saleInfo {
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+}
+
+.user-cell-nav .saleInfo .mobile {
+  margin-left: 15rpx;
+  color: #1875f0;
+}
+
+.user-cell-main .user-cell-content {
+  position: relative;
+  padding: 30rpx;
+}
+
+.user-cell-content .content {
+  display: flex;
+}
+
+.content-item {
+  width: 25%;
+  text-align: center;
+  font-size: 26rpx;
+}
+
+.content-item .icon {
+  position: relative;
+  margin-bottom: 24rpx;
+}
+
+.content-item .icon .count {
+  position: absolute;
+  right: 30rpx;
+  top: -10rpx;
+  color: #fff;
+  font-size: 22rpx;
+  width: 42rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: center;
+  background: rgba(241, 58, 48, 1);
+  border-radius: 16rpx;
+}
+
+.content-item .icon image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.content-item .text {
+  color: #333;
+}
+
+.user-cell-nav {
+  position: relative;
+  overflow: hidden;
+  height: 97rpx;
+  line-height: 97rpx;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.user-cell-nav::before {
+  content: '';
+  position: absolute;
+  top: 40rpx;
+  right: 30rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border: 1px solid #bdbdbd;
+  border-left: 0;
+  border-bottom: 0;
+  transform: rotate(45deg);
+}
+.user-cell-nav.sale::before ,.user-cell-nav:last-child::after{
+  display: none;
+}
+

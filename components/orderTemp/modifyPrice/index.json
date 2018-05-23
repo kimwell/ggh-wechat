@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "修改报价",
+    "usingComponents": {
+      "ajaxPicker": "../../../components/ajaxPicker/index"
+    }
+}

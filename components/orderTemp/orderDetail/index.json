@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#1875F0",
+  "navigationBarTextStyle": "#fff",
+  "navigationBarTitleText": "订单详情",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "cancelTip": "/components/orderTemp/cancelTip/index",
+    "countDown": "/components/countDown/index"
+  }
+}

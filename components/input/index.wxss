@@ -1,0 +1,39 @@
+/* components/input/index.wxss */
+.input-warp{
+  position: relative;
+  width: 100%;
+  height: 96rpx;
+  background-color: #fafafa;
+  border: 1rpx solid #ddd;
+  padding: 24rpx 20rpx 24rpx 75rpx;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: #333;
+  border-radius: 4rpx;
+}
+
+.input-warp.unit-show{
+  padding: 24rpx 60rpx 24rpx 75rpx;
+}
+
+.input-warp .label {
+  position: absolute;
+  left: 20rpx;
+  top: 26rpx;
+  color: #666;
+}
+
+.input-warp input{
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 30rpx;
+  text-align: right;
+}
+
+.input-warp .unit{
+  position: absolute;
+  right: 20rpx;
+  top: 26rpx;
+  color: #666;
+}

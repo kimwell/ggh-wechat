@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "报价",
+    "usingComponents": {
+      "commonPage": "../../components/bqPages/index"
+    },
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+}

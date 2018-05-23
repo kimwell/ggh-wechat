@@ -1,0 +1,32 @@
+<!--pages/publish/subPages/history/index.wxml-->
+<view class='tip'>求购历史只显示最近6条</view>
+
+<view class='irons-container'>
+  <view class='item' wx:for="{{ list }}" wx:key bindtap='copy' data-i="{{ index }}">
+    <view class='base'>
+      <text class='text'>{{ item.ironTypeName }}</text>
+      <text class='dot'></text>
+      <text class='text'>{{ item.materialName }}</text>
+      <text class='dot'></text>
+      <text class='text'>{{ item.surfaceName }}</text>
+      <view class='location'>
+        <text class='iconfont icon-location'></text> {{ item.locationName }}
+      </view>
+    </view>
+    <view class='normal'>
+      {{ item.specifications != '' ? item.specifications : item.height+'*'+item.width+'*'+item.length }}
+          <text class='split'></text> {{ item.tolerance != '' ? item.tolerance : '-' }}
+      <text class='split'></text> {{ item.weights != '' ? item.weights + item.weightUnit : '-' }}/{{ item.numbers != '' ? item.numbers + item.numberUnit : '-' }}
+    </view>
+    <view class='normal gray'>
+      产地：{{ item.proPlacesName }}
+    </view>
+    <view class='normal date'>
+      发布时间：{{ item.time }}
+    </view>
+  </view>
+  <view wx:if="{{ list.length == 0 }}">
+    <image class="no-data" src='/static/images/nodata.png'></image>
+    <view style='text-align:center'>暂无数据</view>
+  </view>
+</view>

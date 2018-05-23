@@ -1,0 +1,18 @@
+<view class="history-wrap">
+  <view wx:for="{{offerData}}" wx:for-index="idx" wx:key="idx" class="history-item {{item.offerStatus == 2 ? 'first':''}}">
+    <view class='top'>
+      <view wx:if="{{item.offerStatus == 2}}" class='current-price'>
+        <text class='time'>{{item.ctime}}</text>当前报价</view>
+      <text wx:if="{{item.offerStatus != 2}}" class='time'>{{item.ctime}}</text>
+      <text class='price'>{{item.offerPerPrice}}元/{{item.baseUnit}}</text>
+    </view>
+    <view class='center'>
+      <text>{{item.tolerance !=''?item.tolerance:'-'}}</text>
+      <text class='split'>|</text>
+      <text>{{item.offerPlaces}}</text>
+      <text class='split'>|</text>
+      <text>{{item.dtime}}(交货)</text>
+    </view>
+    <view class='bottom'>{{item.offerRemark !=''?item.offerRemark:'暂无备注'}}</view>
+  </view>
+</view>

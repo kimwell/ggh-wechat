@@ -1,0 +1,84 @@
+<!--pages/publish/pages/pbList/index.wxml-->
+<view class='list-container'>
+  <view wx:if="{{ list.length == 0 }}">
+    <image class="no-data" src='/static/images/nodata.png'></image>
+    <view style='text-align:center'>暂无数据</view>
+  </view>
+  <view class='item' wx:for="{{ list }}" wx:key >
+    <view class='item-inner' style="{{item.txtStyle}}">
+      <view class='check'>
+        <form class='goast-form' report-submit bindsubmit='check' data-i="{{ index }}">
+          <button formType="submit">
+            <text class='iconfont {{ item.check ? "icon-BAI-fuxuankuangs" : "icon-BAI-fuxuankuang" }}'></text>
+          </button>
+        </form>
+      </view>
+      <view class='info' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{ index }}">
+        <view class='base'>
+          <text class='text'>{{ item.ironTypeName }}</text>
+          <text class='dot'></text>
+          <text class='text'>{{ item.materialName }}</text>
+          <text class='dot'></text>
+          <text class='text'>{{ item.surfaceName }}</text>
+          <view class='location'>
+            <text class='iconfont icon-location'></text> {{ item.locationName }}
+          </view>
+        </view>
+        <view class='normal'>
+        {{ item.specifications != '' ? item.specifications : item.height+'*'+item.width+'*'+item.length }}
+          <text class='split'></text> {{ item.tolerance != '' ? item.tolerance : '-' }}
+          <text class='split'></text> {{ item.weights != '' ? item.weights + item.weightUnit : '-' }}/{{ item.numbers != '' ? item.numbers + item.numberUnit : '-' }}
+        </view>
+        <view class='normal gray'>
+          产地：{{ item.proPlacesName }}
+        </view>
+        <view class='normal gray'>
+          备注：{{ item.remark }}
+        </view>
+      </view>
+      <view class='hide-btn'>
+      <form class='goast-form btn blue' report-submit bindsubmit='edit' data-index="{{ index }}">
+          <button formType="submit">
+            <text class='iconfont icon-compile'></text>
+          </button>
+        </form>
+        <form class='goast-form btn' report-submit bindsubmit='copy' data-index="{{ index }}">
+          <button formType="submit">
+            <text class='iconfont icon-fuzhisvg'></text>
+          </button>
+        </form>
+        <form class='goast-form btn red' report-submit bindsubmit='del' data-index="{{ index }}">
+          <button formType="submit">
+            <text class='iconfont icon-LC_icon_delete_line'></text>
+          </button>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- 全选操作栏 -->
+<view class='check-all'>
+  <form class='goast-form' report-submit bindsubmit='allCheck'>
+    <button formType="submit">
+      <text class='iconfont {{ checkAll ? "icon-BAI-fuxuankuangs" : "icon-BAI-fuxuankuang" }}'></text>全选
+    </button>
+  </form>
+  <form class='goast-form del {{ canDel ? "open" : "" }}' wx:if="{{ checkNum > 0 }}" report-submit bindsubmit='delsome'>
+    <button formType="submit">删除</button>
+  </form>
+</view>
+
+<!-- 底部栏目 -->
+<view class='bottom-btns'>
+  <text class='iconfont icon-daojishi' bindtap='routeTohis'></text>
+
+  <form report-submit bindsubmit='addNew' data-to="/pages/publish/subPages/pbList/index">
+    <button formType="submit">新增</button>
+  </form>
+  <form report-submit bindsubmit='pubSome' data-to="/pages/publish/subPages/pbList/index">
+    <button formType="submit" type="primary">发布{{ checkNum > 0 ? '('+ checkNum +')' : '' }}</button>
+  </form>
+</view>

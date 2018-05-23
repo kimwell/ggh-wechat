@@ -1,0 +1,108 @@
+<!--components/orderTemp/orderDetail/index.wxml-->
+<view class='state-tip  {{ "tip-" + item.status }}'>
+  <text class='dot'></text>
+  <text class='tip'>{{ item.statusStr }}</text>   
+  <countDown wx:if="{{ item.status == 2 }}" endTime="{{item.validity}}" nowTime="{{item.serveTime}}"></countDown>
+  <view class='cancel-remark' wx:if="item.status == 2 || item.status == 3">{{ item.cancelRemark }}</view>
+  
+</view>
+
+<view class='title'>货品详情</view>
+<view class='base-info'>
+  <view class='base'>
+    <text class='text'>{{ item.ironTypeName }}</text>
+    <text class='dot'></text>
+    <text class='text'>{{ item.materialName }}</text>
+    <text class='dot'></text>
+    <text class='text'>{{ item.surfaceName }}</text>
+    <view class='location'>
+      <text class='iconfont icon-location'></text> {{ item.locationName }}
+    </view>
+  </view>
+  <view class='normal'>
+  {{ item.specifications != '' ? item.specifications : item.height+'*'+item.width+'*'+item.length }}
+    <text class='split'></text> {{ item.tolerance != '' ? item.tolerance : '-' }}
+    <text class='split'></text> {{ item.weights != '' ? item.weights + item.weightUnit : '-' }}/{{ item.numbers != '' ? item.numbers + item.numberUnit : '-' }}
+  </view>
+  <view class='normal gray'>
+    产地：{{ item.proPlacesName }}
+  </view>
+  <view class='normal gray'>
+    备注：{{ item.buyRemark != '' ? item.buyRemark : '暂无备注' }}
+  </view>
+</view>
+
+<view class='title'>报价详情</view>
+<view class='offer-detail'>
+  <view class='group'>
+    <view class='label'>单价</view>
+    <view class='value red'>¥{{ item.price }}/{{ item.saleBaseUnit }}</view>
+  </view>
+  <view class='group'>
+    <view class='label'>公差</view>
+    <view class='value'>{{ item.saleTolerance != '' ? item.saleTolerance : '-' }}</view>
+  </view>
+  <view class='group'>
+    <view class='label'>产地</view>
+    <view class='value'>{{ item.saleProPlaceName }}</view>
+  </view>
+  <view class='group'>
+    <view class='label'>交货时间</view>
+    <view class='value'>{{ item.deliveryTime }}</view>
+  </view>
+  <view class='group'>
+    <view class='label'>备注</view>
+    <view class='value'>{{ item.sellRemark != '' ? item.sellRemark : '暂无备注' }}</view>
+  </view>
+  <view class='group' wx:if="{{ !isBuyer }}">
+    <view class='label'>业务员</view>
+    <view class='value'>
+    {{ item.saleId != '' ? item.saleName + '   '  + item.saleMobile : '' }}
+    <text class='changeBind' class="make-call" bindtap='bindSales'>{{ item.saleId != '' ?  '换绑' : '绑定业务员' }}</text>
+    </view>
+  </view>
+</view>
+
+<view class='title'>{{ isBuyer ? '供货商' : '购买方' }}</view>
+<view class='offer-detail'>
+  <view class='group'>
+    <view class='label'>公司名称</view>
+    <navigator url="{{ '/pages/bqPages/company/index?id=' + item.companyId }}" class='value'>
+    {{ item.sellCompanyName }}
+    <image class="level" wx:if="{{ item.marginLevel && item.marginLevel != '' }}" src='{{ "/static/images/grade"+ item.level + ".png" }}'></image>
+    <text class='iconfont icon-youjiantou'></text>
+    </navigator>
+  </view>
+  <view class='group'>
+    <view class='label'>联系人</view>
+    <view class='value'>{{ item.contactName }} {{ item.contactNum }}
+      <text class='make-call' bindtap="makeCall">拨打电话</text>
+    </view>
+  </view>
+</view>
+
+<view class='title'>其他信息</view>
+<view class='order-info'>
+  <view class='group'>中标时间：{{ item.zhongbiao }}</view>
+  <view class='group'>订单号码：{{ item.storeOrderId }}
+    <text class='btn' bindtap='copyOrderId'>复制</text>
+  </view>
+</view>
+
+<view class='empty'></view>
+
+<view class='bottom-btn' wx:if="{{ isBuyer }}">
+  <view class='btn' wx:if="{{ item.status == 2 }}" catchtap='cancelOrder' data-i="{{ index }}">取消订单</view>
+  <view class='btn' wx:if="{{ item.status != 2 }}" catchtap='buyAgan' data-obj="{{ item }}">再次购买</view>
+  <view class='btn' wx:if="{{ item.status == 1 }}" catchtap='toVoid'>作废该单</view>
+</view>
+
+<view class='bottom-btn' wx:if="{{ !isBuyer && (item.status == 2 || item.status == 1) }}">
+  <view class='btn' wx:if="{{ item.status == 2 }}" catchtap='cancelOrder' data-i="{{ index }}">取消订单</view>
+  <view class='btn' wx:if="{{ item.status == 2 }}" catchtap='sellConf'>确认订单</view>
+  <view class='btn' wx:if="{{ item.status == 2 }}" catchtap='editOrder'>修改订单</view>
+
+  <view class='btn' wx:if="{{ item.status == 1 }}" catchtap='toVoid'>作废该单</view>
+</view>
+
+<cancelTip show="{{ cancelShow }}" bindonhide="cancelHide" bindonpick="cancelPick"></cancelTip>

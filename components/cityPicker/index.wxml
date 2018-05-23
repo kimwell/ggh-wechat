@@ -1,0 +1,29 @@
+<!--components/cityPicker/index.wxml-->
+<view class="picker-warp {{className ? 'simple':''}}" bindtap='openPicker'>
+  <text class='label'>{{ title }}</text>
+  <text class='placeholder' wx-if="{{ level > 1 ? tabs[2].active == null : tabs[1].active == null }}">{{ plh }}</text>
+  <text class='value' wx-if="{{ level > 1 ? tabs[2].active != null : tabs[1].active != null  }}">{{ level > 1 ? tabs[2].list[tabs[2].active].shortName  : tabs[1].list[tabs[1].active].shortName }}</text>
+</view>
+
+<view class='mask-cover' wx:if="{{ show }}">
+  <view class='mask' bindtap='close'></view>
+  <view class='picker-container zd'>
+    <view class='header'>
+      <view class='tab'>
+        <text wx:for="{{ tabs }}" wx:if="{{ item.list.length>0 }}" class="{{ activeTab == index ?'active':'' }}" wx:key="{{ index }}" bindtap="switchTab" data-index="{{ index }}">{{ item.label }}</text>
+      </view>
+      <text class='close' bindtap='close'>关闭</text>
+    </view>
+
+    <view class="pick-items {{ 'show-' + activeTab }}">
+      <view class="pick-item" wx:for="{{ tabs }}" wx:for-item="tab" wx:for-index="i" wx:key="{{ i }}" wx:if="{{ tab.list.length > 0 }}">
+        <scroll-view scroll-y class='item-list'>
+          <view wx:for="{{ tab.list }}" wx:key="{{ item.id }}" bindtap='pick' data-index="{{ index }}" class="{{ index == tab.active ?'item active':'item' }}">
+            {{ item.shortName }}
+            <text class='iconfont icon-duihao' wx:if="{{ index == tab.active }}"></text>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>

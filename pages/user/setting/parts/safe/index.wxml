@@ -1,0 +1,15 @@
+<view class='reset'>
+  <view class='reset-item'>
+    <input type='password' bindinput='oldHandle' placeholder='请输入旧密码'></input>
+  </view>
+  <view class='reset-item'>
+    <input type='password' bindinput='newHandle' placeholder='请输入新密码'></input>
+  </view>
+  <view class='reset-item'>
+    <input type='password'  bindinput='renewHandle' placeholder='请再次输入新密码'></input>
+  </view>
+</view>
+<view class='reset'>
+  <view class='reset-btn' bindtap='modifyBtn'>确认修改</view>
+</view>
+<view class='forgot' bindtap='forgot'>忘记密码？</view>

@@ -1,0 +1,23 @@
+.role-tag{
+  display: inline-block;
+  height: 36rpx;
+  line-height: 36rpx;
+  padding: 0 20rpx;
+  font-size: 22rpx;
+  color: #fff;
+  background-color: #F9AE57;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+}
+.role-tag.tag2{
+  background-color: #F9AE57;
+}
+.role-tag.tag3{
+  background-color: #9493E9;
+}
+.role-tag.tag0{
+  background-color: #FF6E8B;
+}
+.role-tag.tag1{
+  background-color: #65A7FF;
+}
